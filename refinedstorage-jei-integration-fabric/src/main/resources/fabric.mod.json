@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "refinedstorage_jei_integration",
+  "version": "${version}",
+  "name": "Refined Storage - JEI Integration",
+  "description": "JEI integration for Refined Storage.",
+  "authors": [
+    "Refined Mods"
+  ],
+  "contact": {
+    "sources": "https://github.com/refinedmods/refinedstorage-jei-integration",
+    "issues": "https://github.com/refinedmods/refinedstorage-jei-integration/issues"
+  },
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.refinedmods.refinedstorage.jei.fabric.ModInitializerImpl"
+    ],
+    "jei_mod_plugin": [
+      "com.refinedmods.refinedstorage.jei.common.RefinedStorageJeiModPlugin"
+    ]
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://discordapp.com/invite/VYzsydb"
+      },
+      "parent": "refinedstorage2"
+    }
+  },
+  "depends": {
+    "fabricloader": ">=0.14.6",
+    "fabric-api": "*",
+    "minecraft": "~1.20.4",
+    "jei": ">=17",
+    "java": ">=17"
+  }
+}

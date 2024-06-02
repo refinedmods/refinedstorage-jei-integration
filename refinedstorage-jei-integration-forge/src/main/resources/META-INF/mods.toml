@@ -1,0 +1,23 @@
+modLoader = "javafml"
+loaderVersion = "[2,)"
+issueTrackerURL = "https://github.com/refinedmods/refinedstorage-jei-integration"
+license = "MIT"
+[[mods]]
+modId = "refinedstorage_jei_integration"
+version = "${version}"
+displayName = "Refined Storage - JEI Integration"
+displayURL = "https://github.com/refinedmods/refinedstorage-jei-integration"
+authors = "Refined Mods"
+description = '''
+JEI integration for Refined Storage.
+'''
+[[dependencies.refinedstorage_jei_integration]]
+modId = "refinedstorage2"
+type = "required"
+versionRange = "2.0.0-milestone.3.6"
+side = "BOTH"
+[[dependencies.refinedstorage_jei_integration]]
+modId = "jei"
+type = "required"
+versionRange = "[17,)"
+side = "BOTH"

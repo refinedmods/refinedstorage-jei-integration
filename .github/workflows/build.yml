@@ -1,0 +1,14 @@
+name: Build
+on:
+  push:
+    branches:
+      - develop
+      - main
+  pull_request:
+    types: [ opened, synchronize, reopened ]
+jobs:
+  build:
+    uses: refinedmods/refinedarchitect/.github/workflows/build.yml@v0.12.1
+    with:
+      mutation-testing: false
+    secrets: inherit

@@ -1,0 +1,49 @@
+archivesBaseName = 'refinedstorage-jei-integration-fabric'
+
+fabricProject("refinedstorage_jei_integration", project(":refinedstorage-jei-integration-common"))
+
+repositories {
+    maven {
+        name = 'JEI'
+        url = "https://maven.blamejared.com/"
+    }
+    maven {
+        url = uri("https://maven.pkg.github.com/refinedmods/refinedstorage2")
+        credentials {
+            username = "anything"
+            password = "\u0067hp_oGjcDFCn8jeTzIj4Ke9pLoEVtpnZMP4VQgaX"
+        }
+    }
+    maven {
+        name = 'ModMenu'
+        url 'https://maven.terraformersmc.com/'
+    }
+    maven {
+        name = 'Cloth Config, REI'
+        url 'https://maven.shedaniel.me/'
+    }
+    maven {
+        name = 'wthit'
+        url "https://maven.bai.lol"
+    }
+    maven {
+        name = 'NoIndium'
+        url = 'https://maven.cafeteria.dev/releases/'
+    }
+    maven {
+        name = "Trinkets"
+        url = 'https://maven.ladysnake.org/releases'
+    }
+}
+
+dependencies {
+    modImplementation "com.refinedmods.refinedstorage2:refinedstorage2-platform-fabric:${refinedstorageVersion}"
+    implementation "com.refinedmods.refinedstorage2:refinedstorage2-platform-api:${refinedstorageVersion}"
+    implementation "com.refinedmods.refinedstorage2:refinedstorage2-resource-api:${refinedstorageVersion}"
+    implementation "com.refinedmods.refinedstorage2:refinedstorage2-grid-api:${refinedstorageVersion}"
+    modCompileOnly common.jei.api
+    modCompileOnly fabric.jei.api
+    modRuntimeOnly fabric.jei.impl
+}
+
+enablePublishing()
