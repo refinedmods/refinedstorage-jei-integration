@@ -9,4 +9,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
--   Initial release.
+- Support for JEI exclusion zones.
+- Support for JEI ghost ingredient dragging.
+- Support for using the R/U keys on Grid slots and filtering slots.
+- Recipe transfer integration for the Crafting Grid.
+- Grid / JEI search box synchronization options.
