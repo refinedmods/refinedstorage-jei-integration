@@ -19,6 +19,7 @@ Adds support for:
     - [Packages](https://github.com/refinedmods/refinedstorage-jei-integration/packages)
     - [Issues](https://github.com/refinedmods/refinedstorage-jei-integration/issues)
     - [Refined Mods on GitHub](https://github.com/refinedmods)
+- [Crowdin](https://crowdin.com/project/refined-storage-jei-integration)
 - [Discord](https://discordapp.com/invite/VYzsydb)
 - [Twitter](https://twitter.com/refinedmods)
 - [Mastodon](https://anvil.social/@refinedmods)
