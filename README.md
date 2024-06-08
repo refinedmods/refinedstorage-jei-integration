@@ -4,6 +4,14 @@
 
 JEI integration for [Refined Storage](https://github.com/refinedmods/refinedstorage2).
 
+Adds support for:
+
+- Exclusion zones
+- Ghost ingredient dragging
+- Using the R/U keys on Grid slots and filtering slots
+- Recipe transfer integration for the Crafting Grid
+- Grid / JEI search box synchronization
+
 ## Links
 
 - [GitHub](https://github.com/refinedmods/refinedstorage-jei-integration)
