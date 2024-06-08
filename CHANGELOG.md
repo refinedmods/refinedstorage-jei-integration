@@ -7,10 +7,16 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.1.0] - 2024-06-08
+
 ### Added
 
-- Support for JEI exclusion zones.
-- Support for JEI ghost ingredient dragging.
-- Support for using the R/U keys on Grid slots and filtering slots.
-- Recipe transfer integration for the Crafting Grid.
-- Grid / JEI search box synchronization options.
+-   Support for JEI exclusion zones.
+-   Support for JEI ghost ingredient dragging.
+-   Support for using the R/U keys on Grid slots and filtering slots.
+-   Recipe transfer integration for the Crafting Grid.
+-   Grid / JEI search box synchronization options.
+
+[Unreleased]: https://github.com/refinedmods/refinedstorage-jei-integration/compare/v0.1.0...HEAD
+
+[0.1.0]: https://github.com/refinedmods/refinedstorage-jei-integration/compare/9145f6a9e8e1b1efd122d9e4cf91ffbd942625c7...v0.1.0
