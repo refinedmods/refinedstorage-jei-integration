@@ -12,3 +12,4 @@ jobs:
     with:
       project-name: 'Refined Storage - JEI Integration'
       mutation-testing: false
+      javadoc: false

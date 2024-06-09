@@ -3,8 +3,8 @@ package com.refinedmods.refinedstorage.jei.common;
 import java.util.Optional;
 
 import com.refinedmods.refinedstorage2.platform.api.grid.view.PlatformGridResource;
-import com.refinedmods.refinedstorage2.platform.api.recipemod.IngredientConverter;
 import com.refinedmods.refinedstorage2.platform.api.support.resource.PlatformResourceKey;
+import com.refinedmods.refinedstorage2.platform.api.support.resource.RecipeModIngredientConverter;
 import com.refinedmods.refinedstorage2.platform.common.grid.screen.AbstractGridScreen;
 import mezz.jei.api.gui.handlers.IGuiContainerHandler;
 import mezz.jei.api.ingredients.IIngredientHelper;
@@ -13,10 +13,10 @@ import mezz.jei.api.runtime.IClickableIngredient;
 import mezz.jei.api.runtime.IIngredientManager;
 
 class GridGuiContainerHandler implements IGuiContainerHandler<AbstractGridScreen<?>> {
-    private final IngredientConverter converter;
+    private final RecipeModIngredientConverter converter;
     private final IIngredientManager ingredientManager;
 
-    GridGuiContainerHandler(final IngredientConverter converter, final IIngredientManager ingredientManager) {
+    GridGuiContainerHandler(final RecipeModIngredientConverter converter, final IIngredientManager ingredientManager) {
         this.converter = converter;
         this.ingredientManager = ingredientManager;
     }

@@ -2,17 +2,17 @@ package com.refinedmods.refinedstorage.jei.common;
 
 import java.util.Optional;
 
-import com.refinedmods.refinedstorage2.platform.api.recipemod.IngredientConverter;
 import com.refinedmods.refinedstorage2.platform.api.support.resource.PlatformResourceKey;
+import com.refinedmods.refinedstorage2.platform.api.support.resource.RecipeModIngredientConverter;
 import com.refinedmods.refinedstorage2.platform.common.support.resource.FluidResource;
 import com.refinedmods.refinedstorage2.platform.common.support.resource.ItemResource;
 import mezz.jei.api.helpers.IPlatformFluidHelper;
 import net.minecraft.world.item.ItemStack;
 
-class IngredientConvertImpl implements IngredientConverter {
+class JeiRecipeModIngredientConverter implements RecipeModIngredientConverter {
     private final IPlatformFluidHelper<?> fluidHelper;
 
-    IngredientConvertImpl(final IPlatformFluidHelper<?> fluidHelper) {
+    JeiRecipeModIngredientConverter(final IPlatformFluidHelper<?> fluidHelper) {
         this.fluidHelper = fluidHelper;
     }
 
