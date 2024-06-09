@@ -9,17 +9,13 @@ import net.minecraft.network.chat.MutableComponent;
 import static com.refinedmods.refinedstorage.jei.common.Common.MOD_ID;
 
 class JeiGridSynchronizer extends AbstractGridSynchronizer {
-    private static final MutableComponent TITLE = Component.translatable(
-        "gui.%s.grid.synchronizer.jei".formatted(MOD_ID)
-    );
+    private static final MutableComponent TITLE = Component.translatable("gui.%s.grid.synchronizer".formatted(MOD_ID));
     private static final MutableComponent TITLE_TWO_WAY = Component.translatable(
-        "gui.%s.grid.synchronizer.jei.two_way".formatted(MOD_ID)
+        "gui.%s.grid.synchronizer.two_way".formatted(MOD_ID)
     );
-    private static final Component HELP = Component.translatable(
-        "gui.%s.grid.synchronizer.jei.help".formatted(MOD_ID)
-    );
+    private static final Component HELP = Component.translatable("gui.%s.grid.synchronizer.help".formatted(MOD_ID));
     private static final Component HELP_TWO_WAY = Component.translatable(
-        "gui.%s.grid.synchronizer.jei.two_way.help".formatted(MOD_ID)
+        "gui.%s.grid.synchronizer.two_way.help".formatted(MOD_ID)
     );
 
     private final JeiProxy jeiProxy;
