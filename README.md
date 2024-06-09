@@ -2,7 +2,8 @@
 
 ## About
 
-JEI integration for [Refined Storage](https://github.com/refinedmods/refinedstorage2).
+[Just Enough Items](https://github.com/mezz/JustEnoughItems) integration
+for [Refined Storage](https://github.com/refinedmods/refinedstorage2).
 
 Adds support for:
 
