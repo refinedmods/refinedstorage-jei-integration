@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import com.refinedmods.refinedstorage2.platform.api.recipemod.IngredientConverter;
 import com.refinedmods.refinedstorage2.platform.api.support.resource.PlatformResourceKey;
+import com.refinedmods.refinedstorage2.platform.api.support.resource.RecipeModIngredientConverter;
 import com.refinedmods.refinedstorage2.platform.common.Platform;
 import com.refinedmods.refinedstorage2.platform.common.support.AbstractBaseScreen;
 import com.refinedmods.refinedstorage2.platform.common.support.containermenu.AbstractResourceContainerMenu;
@@ -16,9 +16,9 @@ import net.minecraft.client.renderer.Rect2i;
 
 @SuppressWarnings("rawtypes")
 class GhostIngredientHandler implements IGhostIngredientHandler<AbstractBaseScreen> {
-    private final IngredientConverter ingredientConverter;
+    private final RecipeModIngredientConverter ingredientConverter;
 
-    GhostIngredientHandler(final IngredientConverter ingredientConverter) {
+    GhostIngredientHandler(final RecipeModIngredientConverter ingredientConverter) {
         this.ingredientConverter = ingredientConverter;
     }
 

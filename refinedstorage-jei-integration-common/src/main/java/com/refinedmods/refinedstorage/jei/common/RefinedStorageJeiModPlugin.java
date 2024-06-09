@@ -3,7 +3,7 @@ package com.refinedmods.refinedstorage.jei.common;
 import javax.annotation.Nullable;
 
 import com.refinedmods.refinedstorage2.platform.api.PlatformApi;
-import com.refinedmods.refinedstorage2.platform.api.recipemod.IngredientConverter;
+import com.refinedmods.refinedstorage2.platform.api.support.resource.RecipeModIngredientConverter;
 import com.refinedmods.refinedstorage2.platform.common.grid.screen.AbstractGridScreen;
 import com.refinedmods.refinedstorage2.platform.common.support.AbstractBaseScreen;
 import mezz.jei.api.IModPlugin;
@@ -44,7 +44,7 @@ public class RefinedStorageJeiModPlugin implements IModPlugin {
 
     @Override
     public void registerGuiHandlers(final IGuiHandlerRegistration registration) {
-        final IngredientConverter converter = PlatformApi.INSTANCE.getIngredientConverter();
+        final RecipeModIngredientConverter converter = PlatformApi.INSTANCE.getIngredientConverter();
         registration.addGenericGuiContainerHandler(
             AbstractBaseScreen.class,
             new ResourceGuiContainerHandler(converter, registration.getJeiHelpers().getIngredientManager())
@@ -84,6 +84,6 @@ public class RefinedStorageJeiModPlugin implements IModPlugin {
     }
 
     private void registerIngredientConverters(final IPlatformFluidHelper<?> fluidHelper) {
-        PlatformApi.INSTANCE.registerIngredientConverter(new IngredientConvertImpl(fluidHelper));
+        PlatformApi.INSTANCE.addIngredientConverter(new JeiRecipeModIngredientConverter(fluidHelper));
     }
 }
