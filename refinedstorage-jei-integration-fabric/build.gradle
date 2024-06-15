@@ -19,12 +19,8 @@ repositories {
         url 'https://maven.terraformersmc.com/'
     }
     maven {
-        name = 'Cloth Config, REI'
+        name = 'Cloth Config'
         url 'https://maven.shedaniel.me/'
-    }
-    maven {
-        name = 'wthit'
-        url "https://maven.bai.lol"
     }
     maven {
         name = 'NoIndium'
@@ -37,13 +33,10 @@ repositories {
 }
 
 dependencies {
-    modImplementation "com.refinedmods.refinedstorage2:refinedstorage2-platform-fabric:${refinedstorageVersion}"
-    implementation "com.refinedmods.refinedstorage2:refinedstorage2-platform-api:${refinedstorageVersion}"
-    implementation "com.refinedmods.refinedstorage2:refinedstorage2-resource-api:${refinedstorageVersion}"
-    implementation "com.refinedmods.refinedstorage2:refinedstorage2-grid-api:${refinedstorageVersion}"
-    modCompileOnly common.jei.api
-    modCompileOnly fabric.jei.api
-    modRuntimeOnly fabric.jei.impl
+    modApi "com.refinedmods.refinedstorage2:refinedstorage2-platform-fabric:${refinedstorageVersion}"
+    modApi "mezz.jei:jei-${minecraftVersion}-fabric:${jeiVersion}"
+    modCompileOnlyApi "mezz.jei:jei-${minecraftVersion}-common-api:${jeiVersion}"
+    modCompileOnlyApi "mezz.jei:jei-${minecraftVersion}-fabric-api:${jeiVersion}"
 }
 
 enablePublishing()
