@@ -1,6 +1,6 @@
 {
-  "gui.refinedstorage_jei_integration.grid.synchronizer.jei": "JEI",
-  "gui.refinedstorage_jei_integration.grid.synchronizer.jei.help": "Sync the search box text to the JEI filter.",
-  "gui.refinedstorage_jei_integration.grid.synchronizer.jei.two_way": "JEI two-way",
-  "gui.refinedstorage_jei_integration.grid.synchronizer.jei.two_way.help": "Sync the search box text to the JEI filter, and the JEI filter to the search box text."
+  "gui.refinedstorage_jei_integration.grid.synchronizer": "JEI",
+  "gui.refinedstorage_jei_integration.grid.synchronizer.help": "Synchronisieren Sie das Suchfeld Text mit dem JEI Filter.",
+  "gui.refinedstorage_jei_integration.grid.synchronizer.two_way": "JEI beidseitig",
+  "gui.refinedstorage_jei_integration.grid.synchronizer.two_way.help": "Synchronisieren Sie das Suchfeld Text mit dem JEI Filter und den JEI Filter mit dem Suchfeld Text."
 }

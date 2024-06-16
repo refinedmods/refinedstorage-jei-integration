@@ -1,4 +1,4 @@
-gradle.ext.refinedArchitectVersion = "0.12.1"
+gradle.ext.refinedArchitectVersion = "0.13.4"
 
 dependencyResolutionManagement {
     repositories {
@@ -8,17 +8,6 @@ dependencyResolutionManagement {
                 username = "anything"
                 password = "\u0067hp_oGjcDFCn8jeTzIj4Ke9pLoEVtpnZMP4VQgaX"
             }
-        }
-    }
-    versionCatalogs {
-        create("common") {
-            from("com.refinedmods.refinedarchitect:refinedarchitect-catalog-platform-common:${gradle.ext.refinedArchitectVersion}")
-        }
-        create("fabric") {
-            from("com.refinedmods.refinedarchitect:refinedarchitect-catalog-platform-fabric:${gradle.ext.refinedArchitectVersion}")
-        }
-        create("forge") {
-            from("com.refinedmods.refinedarchitect:refinedarchitect-catalog-platform-forge:${gradle.ext.refinedArchitectVersion}")
         }
     }
 }

@@ -1,3 +1,7 @@
+plugins {
+    id 'java-library'
+}
+
 archivesBaseName = 'refinedstorage-jei-integration-forge'
 
 forgeProject("refinedstorage_jei_integration", project(":refinedstorage-jei-integration-common"))
@@ -6,6 +10,10 @@ repositories {
     maven {
         name = 'JEI'
         url = "https://maven.blamejared.com/"
+    }
+    maven {
+        name = 'Curios'
+        url = "https://maven.theillusivec4.top/"
     }
     maven {
         url = uri("https://maven.pkg.github.com/refinedmods/refinedstorage2")
@@ -17,14 +25,10 @@ repositories {
 }
 
 dependencies {
-    implementation("com.refinedmods.refinedstorage2:refinedstorage2-platform-forge:${refinedstorageVersion}") {
-        transitive = false
-    }
-
-    compileOnly common.jei.api
-    testCompileOnly common.jei.api
-    compileOnly forge.jei.api
-    runtimeOnly forge.jei.impl
+    api "com.refinedmods.refinedstorage2:refinedstorage2-platform-forge:${refinedstorageVersion}"
+    api "mezz.jei:jei-${minecraftVersion}-neoforge:${jeiVersion}"
+    compileOnlyApi "mezz.jei:jei-${minecraftVersion}-common-api:${jeiVersion}"
+    compileOnlyApi "mezz.jei:jei-${minecraftVersion}-neoforge-api:${jeiVersion}"
 }
 
 enablePublishing()

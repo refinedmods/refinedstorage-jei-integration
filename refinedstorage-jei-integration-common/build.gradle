@@ -1,3 +1,7 @@
+plugins {
+    id 'java-library'
+}
+
 archivesBaseName = 'refinedstorage-jei-integration-common'
 
 repositories {
@@ -17,11 +21,8 @@ repositories {
 commonProject()
 
 dependencies {
-    compileOnly common.jei.api
-    implementation "com.refinedmods.refinedstorage2:refinedstorage2-platform-common:${refinedstorageVersion}"
-    implementation "com.refinedmods.refinedstorage2:refinedstorage2-platform-api:${refinedstorageVersion}"
-    implementation "com.refinedmods.refinedstorage2:refinedstorage2-resource-api:${refinedstorageVersion}"
-    implementation "com.refinedmods.refinedstorage2:refinedstorage2-grid-api:${refinedstorageVersion}"
+    api "mezz.jei:jei-${minecraftVersion}-common-api:${jeiVersion}"
+    api "com.refinedmods.refinedstorage2:refinedstorage2-platform-common:${refinedstorageVersion}"
 }
 
 enablePublishing()
