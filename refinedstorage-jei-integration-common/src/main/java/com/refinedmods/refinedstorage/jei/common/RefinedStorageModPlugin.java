@@ -18,9 +18,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @JeiPlugin
-public class RefinedStorageJeiModPlugin implements IModPlugin {
+public class RefinedStorageModPlugin implements IModPlugin {
     private static final ResourceLocation ID = new ResourceLocation(Common.MOD_ID, "plugin");
-    private static final Logger LOGGER = LoggerFactory.getLogger(RefinedStorageJeiModPlugin.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(RefinedStorageModPlugin.class);
     @Nullable
     private static IJeiRuntime runtime;
 
@@ -39,7 +39,7 @@ public class RefinedStorageJeiModPlugin implements IModPlugin {
         if (runtime == null) {
             initializePlatform(newRuntime.getJeiHelpers().getPlatformFluidHelper());
         }
-        RefinedStorageJeiModPlugin.runtime = newRuntime;
+        RefinedStorageModPlugin.runtime = newRuntime;
     }
 
     @Override
