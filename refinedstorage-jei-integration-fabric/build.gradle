@@ -4,10 +4,6 @@ fabricProject("refinedstorage_jei_integration", project(":refinedstorage-jei-int
 
 repositories {
     maven {
-        name = 'JEI'
-        url = "https://maven.blamejared.com/"
-    }
-    maven {
         url = uri("https://maven.pkg.github.com/refinedmods/refinedstorage2")
         credentials {
             username = "anything"
@@ -27,14 +23,14 @@ repositories {
         url = 'https://maven.cafeteria.dev/releases/'
     }
     maven {
-        name = "Trinkets"
-        url = 'https://maven.ladysnake.org/releases'
+        name = 'JEI'
+        url = "https://maven.blamejared.com/"
     }
 }
 
 dependencies {
     modApi "com.refinedmods.refinedstorage2:refinedstorage2-platform-fabric:${refinedstorageVersion}"
-    modApi "mezz.jei:jei-${minecraftVersion}-fabric:${jeiVersion}"
+    modRuntimeOnly "mezz.jei:jei-${minecraftVersion}-fabric:${jeiVersion}"
     modCompileOnlyApi "mezz.jei:jei-${minecraftVersion}-common-api:${jeiVersion}"
     modCompileOnlyApi "mezz.jei:jei-${minecraftVersion}-fabric-api:${jeiVersion}"
 }

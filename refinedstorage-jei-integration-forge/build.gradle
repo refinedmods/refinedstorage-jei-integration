@@ -8,25 +8,21 @@ forgeProject("refinedstorage_jei_integration", project(":refinedstorage-jei-inte
 
 repositories {
     maven {
-        name = 'JEI'
-        url = "https://maven.blamejared.com/"
-    }
-    maven {
-        name = 'Curios'
-        url = "https://maven.theillusivec4.top/"
-    }
-    maven {
         url = uri("https://maven.pkg.github.com/refinedmods/refinedstorage2")
         credentials {
             username = "anything"
             password = "\u0067hp_oGjcDFCn8jeTzIj4Ke9pLoEVtpnZMP4VQgaX"
         }
     }
+    maven {
+        name = 'JEI'
+        url = "https://maven.blamejared.com/"
+    }
 }
 
 dependencies {
     api "com.refinedmods.refinedstorage2:refinedstorage2-platform-forge:${refinedstorageVersion}"
-    api "mezz.jei:jei-${minecraftVersion}-neoforge:${jeiVersion}"
+    runtimeOnly "mezz.jei:jei-${minecraftVersion}-neoforge:${jeiVersion}"
     compileOnlyApi "mezz.jei:jei-${minecraftVersion}-common-api:${jeiVersion}"
     compileOnlyApi "mezz.jei:jei-${minecraftVersion}-neoforge-api:${jeiVersion}"
 }
