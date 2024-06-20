@@ -18,7 +18,10 @@
       "com.refinedmods.refinedstorage.jei.fabric.ModInitializerImpl"
     ],
     "jei_mod_plugin": [
-      "com.refinedmods.refinedstorage.jei.common.RefinedStorageJeiModPlugin"
+      "com.refinedmods.refinedstorage.jei.common.RefinedStorageModPlugin"
+    ],
+    "refinedstorage_plugin": [
+      "com.refinedmods.refinedstorage.jei.fabric.JeiRefinedStoragePlugin"
     ]
   },
   "custom": {

@@ -6,23 +6,24 @@ archivesBaseName = 'refinedstorage-jei-integration-common'
 
 repositories {
     maven {
-        name = 'JEI'
-        url = "https://maven.blamejared.com/"
-    }
-    maven {
         url = uri("https://maven.pkg.github.com/refinedmods/refinedstorage2")
         credentials {
             username = "anything"
             password = "\u0067hp_oGjcDFCn8jeTzIj4Ke9pLoEVtpnZMP4VQgaX"
         }
     }
+    maven {
+        name = 'JEI'
+        url = "https://maven.blamejared.com/"
+    }
 }
 
 commonProject()
 
 dependencies {
-    api "mezz.jei:jei-${minecraftVersion}-common-api:${jeiVersion}"
     api "com.refinedmods.refinedstorage2:refinedstorage2-platform-common:${refinedstorageVersion}"
+    api "mezz.jei:jei-${minecraftVersion}-common-api:${jeiVersion}"
+    api "mezz.jei:jei-${minecraftVersion}-common:${jeiVersion}"
 }
 
 enablePublishing()

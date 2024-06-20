@@ -5,4 +5,5 @@
 <suppressions>
     <!-- Test directories don't need a package-info.java file -->
     <suppress checks="JavadocPackage" files="test[\\/].*.java"/>
+    <suppress checks="HideUtilityClassConstructor" files="ModInitializer.java"/>
 </suppressions>
