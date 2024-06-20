@@ -7,6 +7,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+-   Potential loading order issues on Fabric.
+
 ## [0.2.1] - 2024-06-16
 
 ### Fixed

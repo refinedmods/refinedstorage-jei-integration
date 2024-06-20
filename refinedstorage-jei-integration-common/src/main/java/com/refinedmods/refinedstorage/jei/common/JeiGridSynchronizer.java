@@ -18,11 +18,9 @@ class JeiGridSynchronizer extends AbstractGridSynchronizer {
         "gui.%s.grid.synchronizer.two_way.help".formatted(MOD_ID)
     );
 
-    private final JeiProxy jeiProxy;
     private final boolean twoWay;
 
-    JeiGridSynchronizer(final JeiProxy jeiProxy, final boolean twoWay) {
-        this.jeiProxy = jeiProxy;
+    JeiGridSynchronizer(final boolean twoWay) {
         this.twoWay = twoWay;
     }
 
@@ -38,13 +36,13 @@ class JeiGridSynchronizer extends AbstractGridSynchronizer {
 
     @Override
     public void synchronizeFromGrid(final String text) {
-        jeiProxy.setSearchFieldText(text);
+        JeiHelper.setSearchFieldText(text);
     }
 
     @Override
     @Nullable
     public String getTextToSynchronizeToGrid() {
-        return twoWay ? jeiProxy.getSearchFieldText() : null;
+        return twoWay ? JeiHelper.getSearchFieldText() : null;
     }
 
     @Override

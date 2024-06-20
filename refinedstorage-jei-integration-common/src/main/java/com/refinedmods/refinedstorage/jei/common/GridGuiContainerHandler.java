@@ -2,9 +2,9 @@ package com.refinedmods.refinedstorage.jei.common;
 
 import java.util.Optional;
 
+import com.refinedmods.refinedstorage2.platform.api.PlatformApi;
 import com.refinedmods.refinedstorage2.platform.api.grid.view.PlatformGridResource;
 import com.refinedmods.refinedstorage2.platform.api.support.resource.PlatformResourceKey;
-import com.refinedmods.refinedstorage2.platform.api.support.resource.RecipeModIngredientConverter;
 import com.refinedmods.refinedstorage2.platform.common.grid.screen.AbstractGridScreen;
 import mezz.jei.api.gui.handlers.IGuiContainerHandler;
 import mezz.jei.api.ingredients.IIngredientHelper;
@@ -13,11 +13,9 @@ import mezz.jei.api.runtime.IClickableIngredient;
 import mezz.jei.api.runtime.IIngredientManager;
 
 class GridGuiContainerHandler implements IGuiContainerHandler<AbstractGridScreen<?>> {
-    private final RecipeModIngredientConverter converter;
     private final IIngredientManager ingredientManager;
 
-    GridGuiContainerHandler(final RecipeModIngredientConverter converter, final IIngredientManager ingredientManager) {
-        this.converter = converter;
+    GridGuiContainerHandler(final IIngredientManager ingredientManager) {
         this.ingredientManager = ingredientManager;
     }
 
@@ -35,7 +33,7 @@ class GridGuiContainerHandler implements IGuiContainerHandler<AbstractGridScreen
         if (underlyingResource == null) {
             return Optional.empty();
         }
-        return converter.convertToIngredient(underlyingResource).flatMap(
+        return PlatformApi.INSTANCE.getIngredientConverter().convertToIngredient(underlyingResource).flatMap(
             ingredient -> convertToClickableIngredient(mouseX, mouseY, ingredient)
         );
     }

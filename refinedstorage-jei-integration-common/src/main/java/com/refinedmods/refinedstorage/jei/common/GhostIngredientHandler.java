@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import com.refinedmods.refinedstorage2.platform.api.PlatformApi;
 import com.refinedmods.refinedstorage2.platform.api.support.resource.PlatformResourceKey;
-import com.refinedmods.refinedstorage2.platform.api.support.resource.RecipeModIngredientConverter;
 import com.refinedmods.refinedstorage2.platform.common.Platform;
 import com.refinedmods.refinedstorage2.platform.common.support.AbstractBaseScreen;
 import com.refinedmods.refinedstorage2.platform.common.support.containermenu.AbstractResourceContainerMenu;
@@ -16,12 +16,6 @@ import net.minecraft.client.renderer.Rect2i;
 
 @SuppressWarnings("rawtypes")
 class GhostIngredientHandler implements IGhostIngredientHandler<AbstractBaseScreen> {
-    private final RecipeModIngredientConverter ingredientConverter;
-
-    GhostIngredientHandler(final RecipeModIngredientConverter ingredientConverter) {
-        this.ingredientConverter = ingredientConverter;
-    }
-
     @Override
     public <I> List<Target<I>> getTargetsTyped(final AbstractBaseScreen screen,
                                                final ITypedIngredient<I> ingredient,
@@ -36,7 +30,7 @@ class GhostIngredientHandler implements IGhostIngredientHandler<AbstractBaseScre
                                            final I ingredient,
                                            final AbstractResourceContainerMenu menu) {
         final List<Target<I>> targets = new ArrayList<>();
-        ingredientConverter.convertToResource(ingredient).ifPresent(resource -> {
+        PlatformApi.INSTANCE.getIngredientConverter().convertToResource(ingredient).ifPresent(resource -> {
             for (final ResourceSlot slot : menu.getResourceSlots()) {
                 if (slot.isFilter() && slot.isValid(resource)) {
                     final Rect2i bounds = getBounds(screen, slot);
@@ -72,7 +66,7 @@ class GhostIngredientHandler implements IGhostIngredientHandler<AbstractBaseScre
 
         @Override
         public void accept(final I ingredient) {
-            ingredientConverter.convertToResource(ingredient).ifPresent(this::accept);
+            PlatformApi.INSTANCE.getIngredientConverter().convertToResource(ingredient).ifPresent(this::accept);
         }
 
         private void accept(final PlatformResourceKey resource) {
