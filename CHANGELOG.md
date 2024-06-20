@@ -10,6 +10,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Fixed
 
 -   Potential loading order issues on Fabric.
+-   Broken recipe transfer.
 
 ## [0.2.1] - 2024-06-16
 

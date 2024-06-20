@@ -85,7 +85,7 @@ class CraftingGridRecipeTransferHandler implements
         return recipeSlots.getSlotViews(RecipeIngredientRole.INPUT).stream().map(slotView -> {
             final List<ItemStack> stacks = slotView.getItemStacks().collect(Collectors.toList());
             prioritizeDisplayedStack(slotView, stacks);
-            return stacks.stream().map(ItemResource::ofItemStack).toList();
+            return stacks.stream().map(ItemResource::ofItemStack).collect(Collectors.toList());
         }).toList();
     }
 
