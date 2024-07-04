@@ -1,8 +1,8 @@
 package com.refinedmods.refinedstorage.jei.common;
 
-import java.util.Optional;
+import com.refinedmods.refinedstorage.platform.common.support.resource.FluidResource;
 
-import com.refinedmods.refinedstorage2.platform.common.support.resource.FluidResource;
+import java.util.Optional;
 
 public interface Platform {
     Optional<FluidResource> convertJeiIngredientToFluid(Object ingredient);

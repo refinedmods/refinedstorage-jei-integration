@@ -1,9 +1,10 @@
 package com.refinedmods.refinedstorage.jei.common;
 
+import com.refinedmods.refinedstorage.platform.common.grid.screen.AbstractGridScreen;
+import com.refinedmods.refinedstorage.platform.common.support.AbstractBaseScreen;
+
 import javax.annotation.Nullable;
 
-import com.refinedmods.refinedstorage2.platform.common.grid.screen.AbstractGridScreen;
-import com.refinedmods.refinedstorage2.platform.common.support.AbstractBaseScreen;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.RecipeTypes;
@@ -14,7 +15,7 @@ import net.minecraft.resources.ResourceLocation;
 
 @JeiPlugin
 public class RefinedStorageModPlugin implements IModPlugin {
-    private static final ResourceLocation ID = new ResourceLocation(Common.MOD_ID, "plugin");
+    private static final ResourceLocation ID = ResourceLocation.fromNamespaceAndPath(Common.MOD_ID, "plugin");
     @Nullable
     private static IJeiRuntime runtime;
 

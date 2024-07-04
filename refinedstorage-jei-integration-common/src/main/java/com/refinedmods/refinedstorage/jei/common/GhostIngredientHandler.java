@@ -1,15 +1,16 @@
 package com.refinedmods.refinedstorage.jei.common;
 
+import com.refinedmods.refinedstorage.platform.api.PlatformApi;
+import com.refinedmods.refinedstorage.platform.api.support.resource.PlatformResourceKey;
+import com.refinedmods.refinedstorage.platform.common.support.AbstractBaseScreen;
+import com.refinedmods.refinedstorage.platform.common.support.containermenu.AbstractResourceContainerMenu;
+import com.refinedmods.refinedstorage.platform.common.support.containermenu.ResourceSlot;
+import com.refinedmods.refinedstorage.platform.common.support.packet.c2s.C2SPackets;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import com.refinedmods.refinedstorage2.platform.api.PlatformApi;
-import com.refinedmods.refinedstorage2.platform.api.support.resource.PlatformResourceKey;
-import com.refinedmods.refinedstorage2.platform.common.Platform;
-import com.refinedmods.refinedstorage2.platform.common.support.AbstractBaseScreen;
-import com.refinedmods.refinedstorage2.platform.common.support.containermenu.AbstractResourceContainerMenu;
-import com.refinedmods.refinedstorage2.platform.common.support.containermenu.ResourceSlot;
 import mezz.jei.api.gui.handlers.IGhostIngredientHandler;
 import mezz.jei.api.ingredients.ITypedIngredient;
 import net.minecraft.client.renderer.Rect2i;
@@ -50,7 +51,7 @@ class GhostIngredientHandler implements IGhostIngredientHandler<AbstractBaseScre
         // no op
     }
 
-    private class TargetImpl<I> implements Target<I> {
+    private static class TargetImpl<I> implements Target<I> {
         private final Rect2i area;
         private final int slotIndex;
 
@@ -70,10 +71,7 @@ class GhostIngredientHandler implements IGhostIngredientHandler<AbstractBaseScre
         }
 
         private void accept(final PlatformResourceKey resource) {
-            Platform.INSTANCE.getClientToServerCommunications().sendResourceFilterSlotChange(
-                resource,
-                slotIndex
-            );
+            C2SPackets.sendResourceFilterSlotChange(resource, slotIndex);
         }
     }
 }
