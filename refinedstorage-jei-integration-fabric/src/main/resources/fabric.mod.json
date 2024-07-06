@@ -29,14 +29,15 @@
       "links": {
         "modmenu.discord": "https://discordapp.com/invite/VYzsydb"
       },
-      "parent": "refinedstorage2"
+      "parent": "refinedstorage"
     }
   },
   "depends": {
     "fabricloader": ">=0.14.6",
     "fabric-api": "*",
-    "minecraft": "~1.20.4",
-    "jei": ">=17",
+    "minecraft": "~1.21",
+    "refinedstorage": ">=2.0.0-milestone.4.0",
+    "jei": ">=19",
     "java": ">=17"
   }
 }

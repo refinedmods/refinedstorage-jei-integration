@@ -1,4 +1,4 @@
-gradle.ext.refinedArchitectVersion = "0.13.4"
+gradle.ext.refinedArchitectVersion = "0.15.1"
 
 dependencyResolutionManagement {
     repositories {
@@ -14,5 +14,5 @@ dependencyResolutionManagement {
 
 rootProject.name = 'refinedstorage-jei-integration'
 include 'refinedstorage-jei-integration-common'
-include 'refinedstorage-jei-integration-forge'
+include 'refinedstorage-jei-integration-neoforge'
 include 'refinedstorage-jei-integration-fabric'

@@ -1,11 +1,12 @@
 package com.refinedmods.refinedstorage.jei.common;
 
+import com.refinedmods.refinedstorage.platform.api.support.resource.PlatformResourceKey;
+import com.refinedmods.refinedstorage.platform.api.support.resource.RecipeModIngredientConverter;
+import com.refinedmods.refinedstorage.platform.common.support.resource.FluidResource;
+import com.refinedmods.refinedstorage.platform.common.support.resource.ItemResource;
+
 import java.util.Optional;
 
-import com.refinedmods.refinedstorage2.platform.api.support.resource.PlatformResourceKey;
-import com.refinedmods.refinedstorage2.platform.api.support.resource.RecipeModIngredientConverter;
-import com.refinedmods.refinedstorage2.platform.common.support.resource.FluidResource;
-import com.refinedmods.refinedstorage2.platform.common.support.resource.ItemResource;
 import mezz.jei.api.helpers.IPlatformFluidHelper;
 import mezz.jei.common.platform.Services;
 import net.minecraft.world.item.ItemStack;
@@ -24,6 +25,7 @@ class JeiRecipeModIngredientConverter implements RecipeModIngredientConverter {
     }
 
     @Override
+    @SuppressWarnings("deprecation")
     public Optional<Object> convertToIngredient(final PlatformResourceKey resource) {
         if (resource instanceof ItemResource itemResource) {
             return Optional.of(itemResource.toItemStack());
@@ -31,9 +33,9 @@ class JeiRecipeModIngredientConverter implements RecipeModIngredientConverter {
         if (resource instanceof FluidResource fluidResource) {
             final IPlatformFluidHelper<?> fluidHelper = Services.PLATFORM.getFluidHelper();
             return Optional.of(fluidHelper.create(
-                fluidResource.fluid(),
+                fluidResource.fluid().builtInRegistryHolder(),
                 fluidHelper.bucketVolume(),
-                fluidResource.tag()
+                fluidResource.components()
             ));
         }
         return Optional.empty();

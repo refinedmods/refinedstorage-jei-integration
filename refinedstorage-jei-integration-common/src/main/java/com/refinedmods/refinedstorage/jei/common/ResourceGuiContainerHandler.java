@@ -1,11 +1,12 @@
 package com.refinedmods.refinedstorage.jei.common;
 
+import com.refinedmods.refinedstorage.platform.api.PlatformApi;
+import com.refinedmods.refinedstorage.platform.api.support.resource.PlatformResourceKey;
+import com.refinedmods.refinedstorage.platform.common.support.AbstractBaseScreen;
+
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-import com.refinedmods.refinedstorage2.platform.api.PlatformApi;
-import com.refinedmods.refinedstorage2.platform.api.support.resource.PlatformResourceKey;
-import com.refinedmods.refinedstorage2.platform.common.support.AbstractBaseScreen;
 import mezz.jei.api.gui.handlers.IGuiContainerHandler;
 import mezz.jei.api.ingredients.IIngredientHelper;
 import mezz.jei.api.ingredients.ITypedIngredient;
