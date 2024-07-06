@@ -1,14 +1,15 @@
 package com.refinedmods.refinedstorage.jei.common;
 
+import com.refinedmods.refinedstorage.api.resource.list.ResourceList;
+import com.refinedmods.refinedstorage.platform.common.content.Menus;
+import com.refinedmods.refinedstorage.platform.common.grid.CraftingGridContainerMenu;
+import com.refinedmods.refinedstorage.platform.common.support.resource.ItemResource;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import javax.annotation.Nullable;
 
-import com.refinedmods.refinedstorage2.api.resource.list.ResourceList;
-import com.refinedmods.refinedstorage2.platform.common.content.Menus;
-import com.refinedmods.refinedstorage2.platform.common.grid.CraftingGridContainerMenu;
-import com.refinedmods.refinedstorage2.platform.common.support.resource.ItemResource;
 import mezz.jei.api.constants.RecipeTypes;
 import mezz.jei.api.gui.ingredient.IRecipeSlotView;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;

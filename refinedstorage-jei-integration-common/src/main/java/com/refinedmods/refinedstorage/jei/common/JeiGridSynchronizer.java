@@ -1,8 +1,9 @@
 package com.refinedmods.refinedstorage.jei.common;
 
+import com.refinedmods.refinedstorage.platform.common.grid.AbstractGridSynchronizer;
+
 import javax.annotation.Nullable;
 
-import com.refinedmods.refinedstorage2.platform.common.grid.AbstractGridSynchronizer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 
