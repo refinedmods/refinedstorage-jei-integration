@@ -35,5 +35,4 @@ dependencies {
     api("com.refinedmods.refinedstorage:refinedstorage-platform-common:${refinedstorageVersion}")
     api("mezz.jei:jei-${minecraftVersion}-common-api:${jeiVersion}")
     api("mezz.jei:jei-${minecraftVersion}-common:${jeiVersion}")
-    testCompileOnly("mezz.jei:jei-${minecraftVersion}-common:${jeiVersion}")
 }

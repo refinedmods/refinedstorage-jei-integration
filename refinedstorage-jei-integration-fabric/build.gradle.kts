@@ -45,5 +45,6 @@ dependencies {
     modApi("com.refinedmods.refinedstorage:refinedstorage-platform-fabric:${refinedstorageVersion}")
     modRuntimeOnly("mezz.jei:jei-${minecraftVersion}-fabric:${jeiVersion}")
     modCompileOnlyApi("mezz.jei:jei-${minecraftVersion}-common-api:${jeiVersion}")
+    modCompileOnlyApi("mezz.jei:jei-${minecraftVersion}-common:${jeiVersion}")
     modCompileOnlyApi("mezz.jei:jei-${minecraftVersion}-fabric-api:${jeiVersion}")
 }
