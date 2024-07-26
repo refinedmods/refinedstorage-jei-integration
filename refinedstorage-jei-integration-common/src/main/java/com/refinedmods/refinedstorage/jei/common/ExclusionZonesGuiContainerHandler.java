@@ -1,6 +1,6 @@
 package com.refinedmods.refinedstorage.jei.common;
 
-import com.refinedmods.refinedstorage.platform.common.support.AbstractBaseScreen;
+import com.refinedmods.refinedstorage.common.support.AbstractBaseScreen;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package com.refinedmods.refinedstorage.jei.common;
 
-import com.refinedmods.refinedstorage.platform.api.PlatformApi;
+import com.refinedmods.refinedstorage.common.api.RefinedStorageApi;
 
 import net.minecraft.resources.ResourceLocation;
 
@@ -22,13 +22,13 @@ public final class Common {
         return requireNonNull(platform, "Platform isn't set yet");
     }
 
-    public static void init(final PlatformApi platformApi) {
-        platformApi.addIngredientConverter(new JeiRecipeModIngredientConverter());
-        platformApi.getGridSynchronizerRegistry().register(
+    public static void init(final RefinedStorageApi api) {
+        api.addIngredientConverter(new JeiRecipeModIngredientConverter());
+        api.getGridSynchronizerRegistry().register(
             ResourceLocation.fromNamespaceAndPath(Common.MOD_ID, "jei"),
             new JeiGridSynchronizer(false)
         );
-        platformApi.getGridSynchronizerRegistry().register(
+        api.getGridSynchronizerRegistry().register(
             ResourceLocation.fromNamespaceAndPath(Common.MOD_ID, "jei_two_way"),
             new JeiGridSynchronizer(true)
         );

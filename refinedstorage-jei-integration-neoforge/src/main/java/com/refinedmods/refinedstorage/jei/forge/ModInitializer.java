@@ -1,7 +1,7 @@
 package com.refinedmods.refinedstorage.jei.forge;
 
+import com.refinedmods.refinedstorage.common.api.RefinedStorageApi;
 import com.refinedmods.refinedstorage.jei.common.Common;
-import com.refinedmods.refinedstorage.platform.api.PlatformApi;
 
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -19,6 +19,6 @@ public class ModInitializer {
 
     @SubscribeEvent
     public static void onCommonSetup(final FMLCommonSetupEvent e) {
-        init(PlatformApi.INSTANCE);
+        init(RefinedStorageApi.INSTANCE);
     }
 }

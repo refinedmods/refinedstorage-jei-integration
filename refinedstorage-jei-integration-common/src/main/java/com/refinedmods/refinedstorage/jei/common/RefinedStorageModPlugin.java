@@ -1,7 +1,7 @@
 package com.refinedmods.refinedstorage.jei.common;
 
-import com.refinedmods.refinedstorage.platform.common.grid.screen.AbstractGridScreen;
-import com.refinedmods.refinedstorage.platform.common.support.AbstractBaseScreen;
+import com.refinedmods.refinedstorage.common.grid.screen.AbstractGridScreen;
+import com.refinedmods.refinedstorage.common.support.AbstractBaseScreen;
 
 import javax.annotation.Nullable;
 

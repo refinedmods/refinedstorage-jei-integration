@@ -1,6 +1,6 @@
 package com.refinedmods.refinedstorage.jei.common;
 
-import com.refinedmods.refinedstorage.platform.common.grid.AbstractGridSynchronizer;
+import com.refinedmods.refinedstorage.common.grid.AbstractGridSynchronizer;
 
 import javax.annotation.Nullable;
 

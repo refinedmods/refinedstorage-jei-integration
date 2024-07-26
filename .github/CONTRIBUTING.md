@@ -9,7 +9,8 @@ or any other method with the owners of this repository before making a change.
 These are the most important things to know before contributing (also explained in more detail later in this document):
 
 - Commit messages must adhere to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
-- Branch names must be formatted correctly. The format is `{category}/GH-{issue number}/{lowercase-description}`.
+- Branch names must be formatted correctly. The format is `{category}/GH-{issue number}/{lowercase-description}`. You
+  can also use `NO-ISSUE` instead of a GitHub issue number.
   Category must match a
   category [used in our Commitlint config](https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional#type-enum).
 - We use [Checkstyle](https://checkstyle.sourceforge.io/) in our build workflow to validate coding style. It is
@@ -47,7 +48,7 @@ Because we use merge commits when merging a PR, branch names will be part of the
 branch names must follow a certain standard.
 
 The format is `{category}/GH-{issue number}/{lowercase-description}` and a branch name can be maximum 50 characters of
-length.
+length. You can also use `NO-ISSUE` instead of a GitHub issue number.
 
 Category must match a
 category [used in our Commitlint config](https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional#type-enum).
