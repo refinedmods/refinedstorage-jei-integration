@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.3.2] - 2024-07-26
+
 ### Fixed
 
 -   Support for Refined Storage v2.0.0-milestone.4.5.
@@ -48,7 +50,9 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 -   Recipe transfer integration for the Crafting Grid.
 -   Grid / JEI search box synchronization options.
 
-[Unreleased]: https://github.com/refinedmods/refinedstorage-jei-integration/compare/v0.3.1...HEAD
+[Unreleased]: https://github.com/refinedmods/refinedstorage-jei-integration/compare/v0.3.2...HEAD
+
+[0.3.2]: https://github.com/refinedmods/refinedstorage-jei-integration/compare/v0.3.1...v0.3.2
 
 [0.3.1]: https://github.com/refinedmods/refinedstorage-jei-integration/compare/v0.3.0...v0.3.1
 
