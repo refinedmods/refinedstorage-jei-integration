@@ -1,13 +1,13 @@
 package com.refinedmods.refinedstorage.jei.fabric;
 
+import com.refinedmods.refinedstorage.common.support.resource.FluidResource;
 import com.refinedmods.refinedstorage.jei.common.Platform;
-import com.refinedmods.refinedstorage.platform.common.support.resource.FluidResource;
 
 import java.util.Optional;
 
 import mezz.jei.api.fabric.ingredients.fluids.IJeiFluidIngredient;
 
-import static com.refinedmods.refinedstorage.platform.fabric.support.resource.VariantUtil.ofFluidVariant;
+import static com.refinedmods.refinedstorage.fabric.support.resource.VariantUtil.ofFluidVariant;
 
 public class FabricPlatform implements Platform {
     @Override

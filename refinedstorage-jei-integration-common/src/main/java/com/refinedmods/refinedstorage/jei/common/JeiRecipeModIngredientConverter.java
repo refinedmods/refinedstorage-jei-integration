@@ -1,9 +1,9 @@
 package com.refinedmods.refinedstorage.jei.common;
 
-import com.refinedmods.refinedstorage.platform.api.support.resource.PlatformResourceKey;
-import com.refinedmods.refinedstorage.platform.api.support.resource.RecipeModIngredientConverter;
-import com.refinedmods.refinedstorage.platform.common.support.resource.FluidResource;
-import com.refinedmods.refinedstorage.platform.common.support.resource.ItemResource;
+import com.refinedmods.refinedstorage.common.api.support.resource.PlatformResourceKey;
+import com.refinedmods.refinedstorage.common.api.support.resource.RecipeModIngredientConverter;
+import com.refinedmods.refinedstorage.common.support.resource.FluidResource;
+import com.refinedmods.refinedstorage.common.support.resource.ItemResource;
 
 import java.util.Optional;
 

@@ -34,7 +34,7 @@ val jeiVersion: String by project
 val minecraftVersion: String by project
 
 dependencies {
-    api("com.refinedmods.refinedstorage:refinedstorage-platform-neoforge:${refinedstorageVersion}")
+    api("com.refinedmods.refinedstorage:refinedstorage-neoforge:${refinedstorageVersion}")
     runtimeOnly("mezz.jei:jei-${minecraftVersion}-neoforge:${jeiVersion}")
     compileOnlyApi("mezz.jei:jei-${minecraftVersion}-common-api:${jeiVersion}")
     compileOnlyApi("mezz.jei:jei-${minecraftVersion}-neoforge-api:${jeiVersion}")

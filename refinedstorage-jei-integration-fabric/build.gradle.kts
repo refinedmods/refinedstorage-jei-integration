@@ -42,7 +42,7 @@ val jeiVersion: String by project
 val minecraftVersion: String by project
 
 dependencies {
-    modApi("com.refinedmods.refinedstorage:refinedstorage-platform-fabric:${refinedstorageVersion}")
+    modApi("com.refinedmods.refinedstorage:refinedstorage-fabric:${refinedstorageVersion}")
     modRuntimeOnly("mezz.jei:jei-${minecraftVersion}-fabric:${jeiVersion}")
     modCompileOnlyApi("mezz.jei:jei-${minecraftVersion}-common-api:${jeiVersion}")
     modCompileOnlyApi("mezz.jei:jei-${minecraftVersion}-common:${jeiVersion}")

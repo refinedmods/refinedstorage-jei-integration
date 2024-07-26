@@ -1,11 +1,11 @@
 package com.refinedmods.refinedstorage.jei.common;
 
-import com.refinedmods.refinedstorage.platform.api.PlatformApi;
-import com.refinedmods.refinedstorage.platform.api.support.resource.PlatformResourceKey;
-import com.refinedmods.refinedstorage.platform.common.support.AbstractBaseScreen;
-import com.refinedmods.refinedstorage.platform.common.support.containermenu.AbstractResourceContainerMenu;
-import com.refinedmods.refinedstorage.platform.common.support.containermenu.ResourceSlot;
-import com.refinedmods.refinedstorage.platform.common.support.packet.c2s.C2SPackets;
+import com.refinedmods.refinedstorage.common.api.RefinedStorageApi;
+import com.refinedmods.refinedstorage.common.api.support.resource.PlatformResourceKey;
+import com.refinedmods.refinedstorage.common.support.AbstractBaseScreen;
+import com.refinedmods.refinedstorage.common.support.containermenu.AbstractResourceContainerMenu;
+import com.refinedmods.refinedstorage.common.support.containermenu.ResourceSlot;
+import com.refinedmods.refinedstorage.common.support.packet.c2s.C2SPackets;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -31,7 +31,7 @@ class GhostIngredientHandler implements IGhostIngredientHandler<AbstractBaseScre
                                            final I ingredient,
                                            final AbstractResourceContainerMenu menu) {
         final List<Target<I>> targets = new ArrayList<>();
-        PlatformApi.INSTANCE.getIngredientConverter().convertToResource(ingredient).ifPresent(resource -> {
+        RefinedStorageApi.INSTANCE.getIngredientConverter().convertToResource(ingredient).ifPresent(resource -> {
             for (final ResourceSlot slot : menu.getResourceSlots()) {
                 if (slot.isFilter() && slot.isValid(resource)) {
                     final Rect2i bounds = getBounds(screen, slot);
@@ -67,7 +67,7 @@ class GhostIngredientHandler implements IGhostIngredientHandler<AbstractBaseScre
 
         @Override
         public void accept(final I ingredient) {
-            PlatformApi.INSTANCE.getIngredientConverter().convertToResource(ingredient).ifPresent(this::accept);
+            RefinedStorageApi.INSTANCE.getIngredientConverter().convertToResource(ingredient).ifPresent(this::accept);
         }
 
         private void accept(final PlatformResourceKey resource) {

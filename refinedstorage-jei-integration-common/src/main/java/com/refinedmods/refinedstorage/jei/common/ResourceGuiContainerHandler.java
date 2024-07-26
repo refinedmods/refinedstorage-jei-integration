@@ -1,8 +1,8 @@
 package com.refinedmods.refinedstorage.jei.common;
 
-import com.refinedmods.refinedstorage.platform.api.PlatformApi;
-import com.refinedmods.refinedstorage.platform.api.support.resource.PlatformResourceKey;
-import com.refinedmods.refinedstorage.platform.common.support.AbstractBaseScreen;
+import com.refinedmods.refinedstorage.common.api.RefinedStorageApi;
+import com.refinedmods.refinedstorage.common.api.support.resource.PlatformResourceKey;
+import com.refinedmods.refinedstorage.common.support.AbstractBaseScreen;
 
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -33,7 +33,7 @@ class ResourceGuiContainerHandler implements IGuiContainerHandler<AbstractBaseSc
         if (resource == null) {
             return Optional.empty();
         }
-        return PlatformApi.INSTANCE.getIngredientConverter().convertToIngredient(resource);
+        return RefinedStorageApi.INSTANCE.getIngredientConverter().convertToIngredient(resource);
     }
 
     private Optional<IClickableIngredient<?>> convertToClickableIngredient(final Object ingredient) {
