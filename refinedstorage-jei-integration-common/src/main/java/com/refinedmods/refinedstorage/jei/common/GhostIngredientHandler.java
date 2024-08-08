@@ -1,9 +1,10 @@
 package com.refinedmods.refinedstorage.jei.common;
 
 import com.refinedmods.refinedstorage.common.api.RefinedStorageApi;
-import com.refinedmods.refinedstorage.common.api.support.resource.PlatformResourceKey;
+import com.refinedmods.refinedstorage.common.support.AbstractBaseContainerMenu;
 import com.refinedmods.refinedstorage.common.support.AbstractBaseScreen;
 import com.refinedmods.refinedstorage.common.support.containermenu.AbstractResourceContainerMenu;
+import com.refinedmods.refinedstorage.common.support.containermenu.FilterSlot;
 import com.refinedmods.refinedstorage.common.support.containermenu.ResourceSlot;
 import com.refinedmods.refinedstorage.common.support.packet.c2s.C2SPackets;
 
@@ -14,6 +15,8 @@ import java.util.List;
 import mezz.jei.api.gui.handlers.IGhostIngredientHandler;
 import mezz.jei.api.ingredients.ITypedIngredient;
 import net.minecraft.client.renderer.Rect2i;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.ItemStack;
 
 @SuppressWarnings("rawtypes")
 class GhostIngredientHandler implements IGhostIngredientHandler<AbstractBaseScreen> {
@@ -21,7 +24,7 @@ class GhostIngredientHandler implements IGhostIngredientHandler<AbstractBaseScre
     public <I> List<Target<I>> getTargetsTyped(final AbstractBaseScreen screen,
                                                final ITypedIngredient<I> ingredient,
                                                final boolean doStart) {
-        if (screen.getMenu() instanceof AbstractResourceContainerMenu menu) {
+        if (screen.getMenu() instanceof AbstractBaseContainerMenu menu) {
             return getTargets(screen, ingredient.getIngredient(), menu);
         }
         return Collections.emptyList();
@@ -29,20 +32,44 @@ class GhostIngredientHandler implements IGhostIngredientHandler<AbstractBaseScre
 
     private <I> List<Target<I>> getTargets(final AbstractBaseScreen screen,
                                            final I ingredient,
-                                           final AbstractResourceContainerMenu menu) {
+                                           final AbstractBaseContainerMenu menu) {
         final List<Target<I>> targets = new ArrayList<>();
-        RefinedStorageApi.INSTANCE.getIngredientConverter().convertToResource(ingredient).ifPresent(resource -> {
-            for (final ResourceSlot slot : menu.getResourceSlots()) {
-                if (slot.isFilter() && slot.isValid(resource)) {
-                    final Rect2i bounds = getBounds(screen, slot);
-                    targets.add(new TargetImpl<>(bounds, slot.index));
-                }
-            }
-        });
+        addResourceTargets(screen, ingredient, menu, targets);
+        addFilterTargets(screen, ingredient, menu, targets);
         return targets;
     }
 
-    private Rect2i getBounds(final AbstractBaseScreen screen, final ResourceSlot slot) {
+    private <I> void addResourceTargets(final AbstractBaseScreen screen,
+                                        final I ingredient,
+                                        final AbstractBaseContainerMenu menu,
+                                        final List<Target<I>> targets) {
+        if (menu instanceof AbstractResourceContainerMenu resourceMenu) {
+            RefinedStorageApi.INSTANCE.getIngredientConverter().convertToResource(ingredient).ifPresent(resource -> {
+                for (final ResourceSlot slot : resourceMenu.getResourceSlots()) {
+                    if (slot.isActive() && slot.isFilter() && slot.isValid(resource)) {
+                        final Rect2i bounds = getBounds(screen, slot);
+                        targets.add(new TargetImpl<>(bounds, slot.index, true));
+                    }
+                }
+            });
+        }
+    }
+
+    private <I> void addFilterTargets(final AbstractBaseScreen screen,
+                                      final I ingredient,
+                                      final AbstractBaseContainerMenu menu,
+                                      final List<Target<I>> targets) {
+        if (ingredient instanceof ItemStack stack) {
+            for (final Slot slot : menu.slots) {
+                if (slot instanceof FilterSlot filterSlot && filterSlot.isActive() && filterSlot.mayPlace(stack)) {
+                    final Rect2i bounds = getBounds(screen, filterSlot);
+                    targets.add(new TargetImpl<>(bounds, filterSlot.index, false));
+                }
+            }
+        }
+    }
+
+    private Rect2i getBounds(final AbstractBaseScreen screen, final Slot slot) {
         return new Rect2i(screen.getLeftPos() + slot.x, screen.getTopPos() + slot.y, 17, 17);
     }
 
@@ -54,10 +81,12 @@ class GhostIngredientHandler implements IGhostIngredientHandler<AbstractBaseScre
     private static class TargetImpl<I> implements Target<I> {
         private final Rect2i area;
         private final int slotIndex;
+        private final boolean resource;
 
-        TargetImpl(final Rect2i area, final int slotIndex) {
+        TargetImpl(final Rect2i area, final int slotIndex, final boolean resource) {
             this.area = area;
             this.slotIndex = slotIndex;
+            this.resource = resource;
         }
 
         @Override
@@ -67,11 +96,13 @@ class GhostIngredientHandler implements IGhostIngredientHandler<AbstractBaseScre
 
         @Override
         public void accept(final I ingredient) {
-            RefinedStorageApi.INSTANCE.getIngredientConverter().convertToResource(ingredient).ifPresent(this::accept);
-        }
-
-        private void accept(final PlatformResourceKey resource) {
-            C2SPackets.sendResourceFilterSlotChange(resource, slotIndex);
+            if (resource) {
+                RefinedStorageApi.INSTANCE.getIngredientConverter().convertToResource(ingredient).ifPresent(
+                    convertedResource -> C2SPackets.sendResourceFilterSlotChange(convertedResource, slotIndex)
+                );
+            } else if (ingredient instanceof ItemStack stack) {
+                C2SPackets.sendFilterSlotChange(stack, slotIndex);
+            }
         }
     }
 }

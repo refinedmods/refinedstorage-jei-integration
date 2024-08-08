@@ -7,6 +7,16 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.4.0] - 2024-08-08
+
+### Added
+
+-   Recipe transfer support for the Pattern Grid.
+
+### Fixed
+
+-   Recipe transfer not prioritizing displayed item.
+
 ## [0.3.2] - 2024-07-26
 
 ### Fixed
@@ -50,7 +60,9 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 -   Recipe transfer integration for the Crafting Grid.
 -   Grid / JEI search box synchronization options.
 
-[Unreleased]: https://github.com/refinedmods/refinedstorage-jei-integration/compare/v0.3.2...HEAD
+[Unreleased]: https://github.com/refinedmods/refinedstorage-jei-integration/compare/v0.4.0...HEAD
+
+[0.4.0]: https://github.com/refinedmods/refinedstorage-jei-integration/compare/v0.3.2...v0.4.0
 
 [0.3.2]: https://github.com/refinedmods/refinedstorage-jei-integration/compare/v0.3.1...v0.3.2
 

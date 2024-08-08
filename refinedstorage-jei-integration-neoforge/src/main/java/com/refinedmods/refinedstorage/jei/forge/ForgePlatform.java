@@ -1,5 +1,6 @@
 package com.refinedmods.refinedstorage.jei.forge;
 
+import com.refinedmods.refinedstorage.api.resource.ResourceAmount;
 import com.refinedmods.refinedstorage.common.support.resource.FluidResource;
 import com.refinedmods.refinedstorage.jei.common.Platform;
 
@@ -14,6 +15,14 @@ public class ForgePlatform implements Platform {
     public Optional<FluidResource> convertJeiIngredientToFluid(final Object ingredient) {
         if (ingredient instanceof FluidStack fluidStack) {
             return Optional.of(ofFluidStack(fluidStack));
+        }
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<ResourceAmount> convertJeiIngredientToFluidAmount(final Object ingredient) {
+        if (ingredient instanceof FluidStack fluidStack) {
+            return Optional.of(new ResourceAmount(ofFluidStack(fluidStack), fluidStack.getAmount()));
         }
         return Optional.empty();
     }

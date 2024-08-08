@@ -1,5 +1,6 @@
 package com.refinedmods.refinedstorage.jei.common;
 
+import com.refinedmods.refinedstorage.api.resource.ResourceAmount;
 import com.refinedmods.refinedstorage.common.api.support.resource.PlatformResourceKey;
 import com.refinedmods.refinedstorage.common.api.support.resource.RecipeModIngredientConverter;
 import com.refinedmods.refinedstorage.common.support.resource.FluidResource;
@@ -20,6 +21,18 @@ class JeiRecipeModIngredientConverter implements RecipeModIngredientConverter {
         }
         if (ingredient instanceof ItemStack itemStack) {
             return Optional.of(ItemResource.ofItemStack(itemStack));
+        }
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<ResourceAmount> convertToResourceAmount(final Object ingredient) {
+        final var fluid = Common.getPlatform().convertJeiIngredientToFluidAmount(ingredient);
+        if (fluid.isPresent()) {
+            return fluid;
+        }
+        if (ingredient instanceof ItemStack itemStack) {
+            return Optional.of(new ResourceAmount(ItemResource.ofItemStack(itemStack), itemStack.getCount()));
         }
         return Optional.empty();
     }
