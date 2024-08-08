@@ -10,7 +10,7 @@ Adds support for:
 - Exclusion zones
 - Ghost ingredient dragging
 - Using the R/U keys on Grid slots and filtering slots
-- Recipe transfer integration for the Crafting Grid
+- Recipe transfer integration for the Crafting Grid and Pattern Grid
 - Grid / JEI search box synchronization
 
 ## Links

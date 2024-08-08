@@ -7,7 +7,6 @@ import com.refinedmods.refinedstorage.common.support.resource.ItemResource;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 import javax.annotation.Nullable;
 
 import mezz.jei.api.constants.RecipeTypes;
@@ -58,7 +57,7 @@ class CraftingGridRecipeTransferHandler implements
     }
 
     private void doTransfer(final IRecipeSlotsView recipeSlots, final CraftingGridContainerMenu containerMenu) {
-        final List<List<ItemResource>> inputs = getInputs(recipeSlots);
+        final List<List<ItemResource>> inputs = SlotUtil.getItems(recipeSlots, RecipeIngredientRole.INPUT);
         containerMenu.transferRecipe(inputs);
     }
 
@@ -80,24 +79,5 @@ class CraftingGridRecipeTransferHandler implements
             }
         }
         return false;
-    }
-
-    private List<List<ItemResource>> getInputs(final IRecipeSlotsView recipeSlots) {
-        return recipeSlots.getSlotViews(RecipeIngredientRole.INPUT).stream().map(slotView -> {
-            final List<ItemStack> stacks = slotView.getItemStacks().collect(Collectors.toList());
-            prioritizeDisplayedStack(slotView, stacks);
-            return stacks.stream().map(ItemResource::ofItemStack).collect(Collectors.toList());
-        }).toList();
-    }
-
-    private void prioritizeDisplayedStack(final IRecipeSlotView slotView, final List<ItemStack> stacks) {
-        slotView.getDisplayedItemStack().ifPresent(displayed -> {
-            final int index = stacks.indexOf(displayed);
-            if (index > 0) {
-                return;
-            }
-            stacks.remove(index);
-            stacks.add(0, displayed);
-        });
     }
 }

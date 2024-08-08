@@ -27,6 +27,16 @@ public class RefinedStorageModPlugin implements IModPlugin {
     @Override
     public void registerRecipeTransferHandlers(final IRecipeTransferRegistration registration) {
         registration.addRecipeTransferHandler(new CraftingGridRecipeTransferHandler(), RecipeTypes.CRAFTING);
+        registration.addRecipeTransferHandler(new PatternGridCraftingRecipeTransferHandler(), RecipeTypes.CRAFTING);
+        registration.addRecipeTransferHandler(
+            new PatternGridStonecutterRecipeTransferHandler(),
+            RecipeTypes.STONECUTTING
+        );
+        registration.addRecipeTransferHandler(
+            new PatternGridSmithingTableRecipeTransferHandler(),
+            RecipeTypes.SMITHING
+        );
+        registration.addUniversalRecipeTransferHandler(new PatternGridProcessingRecipeTransferHandler());
     }
 
     @Override
