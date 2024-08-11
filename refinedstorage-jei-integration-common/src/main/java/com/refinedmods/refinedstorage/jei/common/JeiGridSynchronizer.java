@@ -1,15 +1,17 @@
 package com.refinedmods.refinedstorage.jei.common;
 
-import com.refinedmods.refinedstorage.common.grid.AbstractGridSynchronizer;
+import com.refinedmods.refinedstorage.common.api.grid.GridSynchronizer;
+import com.refinedmods.refinedstorage.common.grid.NoopGridSynchronizer;
 
 import javax.annotation.Nullable;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.resources.ResourceLocation;
 
 import static com.refinedmods.refinedstorage.jei.common.Common.MOD_ID;
 
-class JeiGridSynchronizer extends AbstractGridSynchronizer {
+class JeiGridSynchronizer implements GridSynchronizer {
     private static final MutableComponent TITLE = Component.translatable("gui.%s.grid.synchronizer".formatted(MOD_ID));
     private static final MutableComponent TITLE_TWO_WAY = Component.translatable(
         "gui.%s.grid.synchronizer.two_way".formatted(MOD_ID)
@@ -47,7 +49,7 @@ class JeiGridSynchronizer extends AbstractGridSynchronizer {
     }
 
     @Override
-    public int getXTexture() {
-        return twoWay ? 32 : 48;
+    public ResourceLocation getSprite() {
+        return twoWay ? NoopGridSynchronizer.ON_TWO_WAY : NoopGridSynchronizer.ON;
     }
 }
