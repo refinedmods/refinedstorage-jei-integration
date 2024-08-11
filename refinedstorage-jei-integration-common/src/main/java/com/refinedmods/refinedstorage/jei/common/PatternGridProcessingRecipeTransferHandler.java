@@ -10,15 +10,12 @@ import javax.annotation.Nullable;
 
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.recipe.RecipeIngredientRole;
-import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.transfer.IRecipeTransferError;
-import mezz.jei.api.recipe.transfer.IRecipeTransferHandler;
+import mezz.jei.api.recipe.transfer.IUniversalRecipeTransferHandler;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.MenuType;
-import net.minecraft.world.item.crafting.RecipeHolder;
 
-class PatternGridProcessingRecipeTransferHandler implements
-    IRecipeTransferHandler<PatternGridContainerMenu, RecipeHolder<?>> {
+class PatternGridProcessingRecipeTransferHandler implements IUniversalRecipeTransferHandler<PatternGridContainerMenu> {
     @Override
     public Class<? extends PatternGridContainerMenu> getContainerClass() {
         return PatternGridContainerMenu.class;
@@ -30,23 +27,19 @@ class PatternGridProcessingRecipeTransferHandler implements
     }
 
     @Override
-    @SuppressWarnings({"DataFlowIssue"})
-    public RecipeType<RecipeHolder<?>> getRecipeType() {
-        return null; // universal transfer handler makes this null safe
-    }
-
-    @Override
     @Nullable
-    public IRecipeTransferError transferRecipe(final PatternGridContainerMenu containerMenu,
-                                               final RecipeHolder<?> recipe,
-                                               final IRecipeSlotsView recipeSlots,
-                                               final Player player,
-                                               final boolean maxTransfer,
-                                               final boolean doTransfer) {
+    public IRecipeTransferError transferRecipe(
+        final PatternGridContainerMenu container,
+        final Object recipe,
+        final IRecipeSlotsView recipeSlots,
+        final Player player,
+        final boolean maxTransfer,
+        final boolean doTransfer
+    ) {
         if (doTransfer) {
             final List<List<ResourceAmount>> inputs = SlotUtil.getResources(recipeSlots, RecipeIngredientRole.INPUT);
             final List<List<ResourceAmount>> outputs = SlotUtil.getResources(recipeSlots, RecipeIngredientRole.OUTPUT);
-            containerMenu.transferProcessingRecipe(inputs, outputs);
+            container.transferProcessingRecipe(inputs, outputs);
         }
         return null;
     }

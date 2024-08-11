@@ -63,7 +63,8 @@ public class RefinedStorageModPlugin implements IModPlugin {
             AbstractBaseScreen.class,
             new ExclusionZonesGuiContainerHandler()
         );
-        registration.addGhostIngredientHandler(AbstractBaseScreen.class, new GhostIngredientHandler());
+        registration.addGhostIngredientHandler(AbstractBaseScreen.class, new ResourceGhostIngredientHandler());
+        registration.addGhostIngredientHandler(AbstractBaseScreen.class, new FilterGhostIngredientHandler());
     }
 
     @Nullable
