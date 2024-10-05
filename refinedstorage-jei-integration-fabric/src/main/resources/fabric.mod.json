@@ -37,7 +37,7 @@
     "fabric-api": "*",
     "minecraft": "~1.21",
     "refinedstorage": ">=2.0.0-milestone.4.7",
-    "jei": ">=19.8.2",
+    "jei": ">=19.20.0",
     "java": ">=17"
   }
 }

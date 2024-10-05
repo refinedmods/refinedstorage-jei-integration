@@ -43,7 +43,7 @@ final class SlotUtil {
         return recipeSlots.getSlotViews(role).stream().map(SlotUtil::getResources).toList();
     }
 
-    private static List<ResourceAmount> getResources(final IRecipeSlotView slotView) {
+    public static List<ResourceAmount> getResources(final IRecipeSlotView slotView) {
         final List<ResourceAmount> resources = slotView.getAllIngredients()
             .flatMap(ingredient -> RefinedStorageApi.INSTANCE.getIngredientConverter().convertToResourceAmount(
                 ingredient.getIngredient()).stream())

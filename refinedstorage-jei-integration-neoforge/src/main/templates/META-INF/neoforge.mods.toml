@@ -19,5 +19,5 @@ side = "BOTH"
 [[dependencies.refinedstorage_jei_integration]]
 modId = "jei"
 type = "required"
-versionRange = "[19.8.2,)"
+versionRange = "[19.20.0,)"
 side = "BOTH"

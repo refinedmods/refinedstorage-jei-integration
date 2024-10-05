@@ -27,7 +27,6 @@ repositories {
 refinedarchitect {
     modId = "refinedstorage_jei_integration"
     fabric()
-    compileWithProject(project(":refinedstorage-jei-integration-common"))
     publishing {
         maven = true
     }
@@ -41,7 +40,13 @@ val refinedstorageVersion: String by project
 val jeiVersion: String by project
 val minecraftVersion: String by project
 
+val commonJava by configurations.existing
+val commonResources by configurations.existing
+
 dependencies {
+    compileOnly(project(":refinedstorage-jei-integration-common"))
+    commonJava(project(path = ":refinedstorage-jei-integration-common", configuration = "commonJava"))
+    commonResources(project(path = ":refinedstorage-jei-integration-common", configuration = "commonResources"))
     modApi("com.refinedmods.refinedstorage:refinedstorage-fabric:${refinedstorageVersion}")
     modRuntimeOnly("mezz.jei:jei-${minecraftVersion}-fabric:${jeiVersion}")
     modCompileOnlyApi("mezz.jei:jei-${minecraftVersion}-common-api:${jeiVersion}")
