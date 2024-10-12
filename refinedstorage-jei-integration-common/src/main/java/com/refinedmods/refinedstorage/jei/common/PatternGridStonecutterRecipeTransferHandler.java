@@ -11,14 +11,13 @@ import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.transfer.IRecipeTransferError;
-import mezz.jei.api.recipe.transfer.IRecipeTransferHandler;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.StonecutterRecipe;
 
-class PatternGridStonecutterRecipeTransferHandler implements
-    IRecipeTransferHandler<PatternGridContainerMenu, RecipeHolder<StonecutterRecipe>> {
+class PatternGridStonecutterRecipeTransferHandler
+    extends AbstractPatternGridRecipeTransferHandler<RecipeHolder<StonecutterRecipe>> {
     @Override
     public Class<? extends PatternGridContainerMenu> getContainerClass() {
         return PatternGridContainerMenu.class;
@@ -56,6 +55,6 @@ class PatternGridStonecutterRecipeTransferHandler implements
                 outputStacks.getFirst().getFirst()
             );
         }
-        return null;
+        return autocraftableHint(containerMenu.getView(), recipeSlots);
     }
 }
