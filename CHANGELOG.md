@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.6.0] - 2024-10-12
+
 ### Added
 
 -   The recipe transfer support in the Pattern Grid and Crafting Grid now indicates whether all or some resources are autocraftable.
@@ -76,7 +78,9 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 -   Recipe transfer integration for the Crafting Grid.
 -   Grid / JEI search box synchronization options.
 
-[Unreleased]: https://github.com/refinedmods/refinedstorage-jei-integration/compare/v0.5.0...HEAD
+[Unreleased]: https://github.com/refinedmods/refinedstorage-jei-integration/compare/v0.6.0...HEAD
+
+[0.6.0]: https://github.com/refinedmods/refinedstorage-jei-integration/compare/v0.5.0...v0.6.0
 
 [0.5.0]: https://github.com/refinedmods/refinedstorage-jei-integration/compare/v0.4.0...v0.5.0
 
