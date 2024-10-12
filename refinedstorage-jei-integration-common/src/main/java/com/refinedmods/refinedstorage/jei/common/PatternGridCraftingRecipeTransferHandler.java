@@ -13,14 +13,13 @@ import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.transfer.IRecipeTransferError;
-import mezz.jei.api.recipe.transfer.IRecipeTransferHandler;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.crafting.CraftingRecipe;
 import net.minecraft.world.item.crafting.RecipeHolder;
 
-class PatternGridCraftingRecipeTransferHandler implements
-    IRecipeTransferHandler<PatternGridContainerMenu, RecipeHolder<CraftingRecipe>> {
+class PatternGridCraftingRecipeTransferHandler
+    extends AbstractPatternGridRecipeTransferHandler<RecipeHolder<CraftingRecipe>> {
     @Override
     public Class<? extends PatternGridContainerMenu> getContainerClass() {
         return PatternGridContainerMenu.class;
@@ -47,7 +46,8 @@ class PatternGridCraftingRecipeTransferHandler implements
         if (doTransfer) {
             final List<List<ItemResource>> inputs = SlotUtil.getItems(recipeSlots, RecipeIngredientRole.INPUT);
             containerMenu.transferCraftingRecipe(inputs);
+            return null;
         }
-        return null;
+        return autocraftableHint(containerMenu.getView(), recipeSlots);
     }
 }

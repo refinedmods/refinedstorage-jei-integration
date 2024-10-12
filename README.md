@@ -23,7 +23,6 @@ Adds support for:
 - [Crowdin](https://crowdin.com/project/refined-storage-jei-integration)
 - [Discord](https://discordapp.com/invite/VYzsydb)
 - [Twitter](https://twitter.com/refinedmods)
-- [Mastodon](https://anvil.social/@refinedmods)
 
 ## Building
 
