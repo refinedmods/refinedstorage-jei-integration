@@ -7,5 +7,6 @@
   "gui.refinedstorage_jei_integration.transfer.missing_but_some_autocraftable": "Missing items, some are autocraftable",
   "gui.refinedstorage_jei_integration.transfer.ctrl_click_to_autocraft": "CTRL + click to autocraft",
   "gui.refinedstorage_jei_integration.transfer.all_autocraftable": "All are autocraftable",
-  "gui.refinedstorage_jei_integration.transfer.some_autocraftable": "Some are autocraftable"
+  "gui.refinedstorage_jei_integration.transfer.some_autocraftable": "Some are autocraftable",
+  "alias.refinedstorage_jei_integration.refinedstorage1_disk_manipulator": "Disk Manipulator"
 }

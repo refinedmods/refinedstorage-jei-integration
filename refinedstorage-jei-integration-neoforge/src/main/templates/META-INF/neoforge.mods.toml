@@ -14,7 +14,7 @@ JEI integration for Refined Storage.
 [[dependencies.refinedstorage_jei_integration]]
 modId = "refinedstorage"
 type = "required"
-versionRange = "2.0.0-milestone.4.7"
+versionRange = "2.0.0-milestone.4.8"
 side = "BOTH"
 [[dependencies.refinedstorage_jei_integration]]
 modId = "jei"
