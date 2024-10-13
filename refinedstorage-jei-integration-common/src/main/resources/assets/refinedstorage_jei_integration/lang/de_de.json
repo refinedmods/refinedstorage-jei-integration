@@ -2,5 +2,11 @@
   "gui.refinedstorage_jei_integration.grid.synchronizer": "JEI",
   "gui.refinedstorage_jei_integration.grid.synchronizer.help": "Synchronisieren Sie das Suchfeld Text mit dem JEI Filter.",
   "gui.refinedstorage_jei_integration.grid.synchronizer.two_way": "JEI beidseitig",
-  "gui.refinedstorage_jei_integration.grid.synchronizer.two_way.help": "Synchronisieren Sie das Suchfeld Text mit dem JEI Filter und den JEI Filter mit dem Suchfeld Text."
+  "gui.refinedstorage_jei_integration.grid.synchronizer.two_way.help": "Synchronisieren Sie das Suchfeld Text mit dem JEI Filter und den JEI Filter mit dem Suchfeld Text.",
+  "gui.refinedstorage_jei_integration.transfer.missing_but_all_autocraftable": "Missing items, all are autocraftable",
+  "gui.refinedstorage_jei_integration.transfer.missing_but_some_autocraftable": "Missing items, some are autocraftable",
+  "gui.refinedstorage_jei_integration.transfer.ctrl_click_to_autocraft": "CTRL + click to autocraft",
+  "gui.refinedstorage_jei_integration.transfer.all_autocraftable": "All are autocraftable",
+  "gui.refinedstorage_jei_integration.transfer.some_autocraftable": "Some are autocraftable",
+  "alias.refinedstorage_jei_integration.refinedstorage1_disk_manipulator": "Disk Manipulator"
 }
