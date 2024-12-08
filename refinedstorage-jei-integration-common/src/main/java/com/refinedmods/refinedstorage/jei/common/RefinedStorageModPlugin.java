@@ -1,6 +1,7 @@
 package com.refinedmods.refinedstorage.jei.common;
 
 import com.refinedmods.refinedstorage.common.content.Items;
+import com.refinedmods.refinedstorage.common.grid.CraftingGridContainerMenu;
 import com.refinedmods.refinedstorage.common.grid.screen.AbstractGridScreen;
 import com.refinedmods.refinedstorage.common.support.AbstractBaseScreen;
 
@@ -42,7 +43,12 @@ public class RefinedStorageModPlugin implements IModPlugin {
 
     @Override
     public void registerRecipeTransferHandlers(final IRecipeTransferRegistration registration) {
-        registration.addRecipeTransferHandler(new CraftingGridRecipeTransferHandler(), RecipeTypes.CRAFTING);
+        registration.addRecipeTransferHandler(new CraftingGridRecipeTransferHandler<>(
+            CraftingGridContainerMenu.class
+        ), RecipeTypes.CRAFTING);
+        if (QuartzArsenalIntegration.isLoaded()) {
+            QuartzArsenalIntegration.load(registration);
+        }
         registration.addRecipeTransferHandler(new PatternGridCraftingRecipeTransferHandler(), RecipeTypes.CRAFTING);
         registration.addRecipeTransferHandler(
             new PatternGridStonecutterRecipeTransferHandler(),

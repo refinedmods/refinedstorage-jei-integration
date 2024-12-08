@@ -7,6 +7,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+-   Support for Refined Storage v2.0.0-milestone.4.11.
+-   Recipe transfer not working in the Wireless Crafting Grid.
+
 ## [0.6.0] - 2024-10-12
 
 ### Added
