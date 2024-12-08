@@ -2,7 +2,7 @@ package com.refinedmods.refinedstorage.jei.common;
 
 import com.refinedmods.refinedstorage.api.grid.view.GridView;
 import com.refinedmods.refinedstorage.api.resource.ResourceAmount;
-import com.refinedmods.refinedstorage.common.autocrafting.PatternGridContainerMenu;
+import com.refinedmods.refinedstorage.common.autocrafting.patterngrid.PatternGridContainerMenu;
 
 import java.util.List;
 import javax.annotation.Nullable;

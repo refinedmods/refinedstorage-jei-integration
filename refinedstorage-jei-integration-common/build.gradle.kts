@@ -28,6 +28,7 @@ base {
 }
 
 val refinedstorageVersion: String by project
+val refinedstorageQuartzArsenalVersion: String by project
 val jeiVersion: String by project
 val minecraftVersion: String by project
 
@@ -35,4 +36,5 @@ dependencies {
     api("com.refinedmods.refinedstorage:refinedstorage-common:${refinedstorageVersion}")
     api("mezz.jei:jei-${minecraftVersion}-common-api:${jeiVersion}")
     api("mezz.jei:jei-${minecraftVersion}-common:${jeiVersion}")
+    compileOnlyApi("com.refinedmods.refinedstorage:refinedstorage-quartz-arsenal-common:${refinedstorageQuartzArsenalVersion}")
 }

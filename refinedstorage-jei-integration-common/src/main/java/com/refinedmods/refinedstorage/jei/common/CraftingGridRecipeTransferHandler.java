@@ -4,9 +4,8 @@ import com.refinedmods.refinedstorage.api.grid.view.GridView;
 import com.refinedmods.refinedstorage.api.resource.ResourceAmount;
 import com.refinedmods.refinedstorage.api.resource.list.MutableResourceList;
 import com.refinedmods.refinedstorage.api.resource.list.MutableResourceListImpl;
-import com.refinedmods.refinedstorage.common.api.RefinedStorageApi;
-import com.refinedmods.refinedstorage.common.content.Menus;
-import com.refinedmods.refinedstorage.common.grid.CraftingGridContainerMenu;
+import com.refinedmods.refinedstorage.common.api.RefinedStorageClientApi;
+import com.refinedmods.refinedstorage.common.grid.AbstractCraftingGridContainerMenu;
 import com.refinedmods.refinedstorage.common.support.resource.ItemResource;
 
 import java.util.List;
@@ -32,16 +31,22 @@ import net.minecraft.world.item.crafting.RecipeHolder;
 
 import static java.util.Comparator.comparingLong;
 
-class CraftingGridRecipeTransferHandler implements
-    IRecipeTransferHandler<CraftingGridContainerMenu, RecipeHolder<CraftingRecipe>> {
-    @Override
-    public Class<? extends CraftingGridContainerMenu> getContainerClass() {
-        return CraftingGridContainerMenu.class;
+class CraftingGridRecipeTransferHandler<T extends AbstractCraftingGridContainerMenu> implements
+    IRecipeTransferHandler<T, RecipeHolder<CraftingRecipe>> {
+    private final Class<T> clazz;
+
+    CraftingGridRecipeTransferHandler(final Class<T> clazz) {
+        this.clazz = clazz;
     }
 
     @Override
-    public Optional<MenuType<CraftingGridContainerMenu>> getMenuType() {
-        return Optional.of(Menus.INSTANCE.getCraftingGrid());
+    public Class<T> getContainerClass() {
+        return clazz;
+    }
+
+    @Override
+    public Optional<MenuType<T>> getMenuType() {
+        return Optional.empty();
     }
 
     @Override
@@ -51,7 +56,7 @@ class CraftingGridRecipeTransferHandler implements
 
     @Override
     @Nullable
-    public IRecipeTransferError transferRecipe(final CraftingGridContainerMenu containerMenu,
+    public IRecipeTransferError transferRecipe(final T containerMenu,
                                                final RecipeHolder<CraftingRecipe> recipe,
                                                final IRecipeSlotsView recipeSlots,
                                                final Player player,
@@ -78,7 +83,7 @@ class CraftingGridRecipeTransferHandler implements
             ? recipesGui.getParentScreen().orElse(null)
             : null;
         final List<ResourceAmount> craftingRequests = createCraftingRequests(transferInputs);
-        RefinedStorageApi.INSTANCE.openAutocraftingPreview(craftingRequests, parentScreen);
+        RefinedStorageClientApi.INSTANCE.openAutocraftingPreview(craftingRequests, parentScreen);
     }
 
     private TransferType getTransferType(final List<TransferInput> transferInputs) {
@@ -96,7 +101,7 @@ class CraftingGridRecipeTransferHandler implements
         return TransferType.MISSING;
     }
 
-    private void doTransfer(final IRecipeSlotsView recipeSlots, final CraftingGridContainerMenu containerMenu) {
+    private void doTransfer(final IRecipeSlotsView recipeSlots, final AbstractCraftingGridContainerMenu containerMenu) {
         final List<List<ItemResource>> inputs = SlotUtil.getItems(recipeSlots, RecipeIngredientRole.INPUT);
         containerMenu.transferRecipe(inputs);
     }

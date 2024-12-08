@@ -1,6 +1,6 @@
 package com.refinedmods.refinedstorage.jei.common;
 
-import com.refinedmods.refinedstorage.common.autocrafting.PatternGridContainerMenu;
+import com.refinedmods.refinedstorage.common.autocrafting.patterngrid.PatternGridContainerMenu;
 import com.refinedmods.refinedstorage.common.content.Menus;
 
 import java.util.Optional;
