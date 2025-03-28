@@ -48,6 +48,6 @@ class PatternGridCraftingRecipeTransferHandler
             containerMenu.transferCraftingRecipe(inputs);
             return null;
         }
-        return autocraftableHint(containerMenu.getView(), recipeSlots);
+        return autocraftableHint(containerMenu.getRepository(), recipeSlots);
     }
 }

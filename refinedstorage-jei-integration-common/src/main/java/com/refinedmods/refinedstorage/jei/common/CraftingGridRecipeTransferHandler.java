@@ -1,10 +1,11 @@
 package com.refinedmods.refinedstorage.jei.common;
 
-import com.refinedmods.refinedstorage.api.grid.view.GridView;
 import com.refinedmods.refinedstorage.api.resource.ResourceAmount;
 import com.refinedmods.refinedstorage.api.resource.list.MutableResourceList;
 import com.refinedmods.refinedstorage.api.resource.list.MutableResourceListImpl;
+import com.refinedmods.refinedstorage.api.resource.repository.ResourceRepository;
 import com.refinedmods.refinedstorage.common.api.RefinedStorageClientApi;
+import com.refinedmods.refinedstorage.common.api.grid.view.GridResource;
 import com.refinedmods.refinedstorage.common.grid.AbstractCraftingGridContainerMenu;
 import com.refinedmods.refinedstorage.common.support.resource.ItemResource;
 
@@ -62,9 +63,9 @@ class CraftingGridRecipeTransferHandler<T extends AbstractCraftingGridContainerM
                                                final Player player,
                                                final boolean maxTransfer,
                                                final boolean doTransfer) {
-        final GridView view = containerMenu.getView();
+        final ResourceRepository<GridResource> repository = containerMenu.getRepository();
         final MutableResourceList available = containerMenu.getAvailableListForRecipeTransfer();
-        final List<TransferInput> transferInputs = getTransferInputs(view, recipeSlots, available);
+        final List<TransferInput> transferInputs = getTransferInputs(repository, recipeSlots, available);
         final TransferType type = getTransferType(transferInputs);
         if (doTransfer) {
             if (type.canOpenAutocraftingPreview() && Screen.hasControlDown()) {
@@ -106,31 +107,31 @@ class CraftingGridRecipeTransferHandler<T extends AbstractCraftingGridContainerM
         containerMenu.transferRecipe(inputs);
     }
 
-    private List<TransferInput> getTransferInputs(final GridView view,
+    private List<TransferInput> getTransferInputs(final ResourceRepository<GridResource> repository,
                                                   final IRecipeSlotsView recipeSlots,
                                                   final MutableResourceList available) {
         return recipeSlots.getSlotViews(RecipeIngredientRole.INPUT)
             .stream()
             .filter(slotView -> !slotView.isEmpty())
-            .map(slotView -> toTransferInput(view, available, slotView))
+            .map(slotView -> toTransferInput(repository, available, slotView))
             .toList();
     }
 
-    private TransferInput toTransferInput(final GridView view,
+    private TransferInput toTransferInput(final ResourceRepository<GridResource> repository,
                                           final MutableResourceList available,
                                           final IRecipeSlotView slotView) {
         final List<ItemStack> possibilities = slotView.getItemStacks().toList();
         for (final ItemStack possibility : possibilities) {
             final ItemResource possibilityResource = ItemResource.ofItemStack(possibility);
-            if (available.remove(possibilityResource, 1).isPresent()) {
+            if (available.remove(possibilityResource, 1) != null) {
                 return new TransferInput(slotView, TransferInputType.AVAILABLE, null);
             }
         }
         final List<ItemResource> autocraftingPossibilities = possibilities
             .stream()
             .map(ItemResource::ofItemStack)
-            .filter(view::isAutocraftable)
-            .sorted(comparingLong(view::getAmount))
+            .filter(repository::isSticky)
+            .sorted(comparingLong(repository::getAmount))
             .toList();
         if (!autocraftingPossibilities.isEmpty()) {
             return new TransferInput(slotView, TransferInputType.AUTOCRAFTABLE, autocraftingPossibilities.getFirst());
