@@ -54,6 +54,6 @@ class PatternGridSmithingTableRecipeTransferHandler
                 inputSlots.get(2)
             );
         }
-        return autocraftableHint(containerMenu.getView(), recipeSlots);
+        return autocraftableHint(containerMenu.getRepository(), recipeSlots);
     }
 }

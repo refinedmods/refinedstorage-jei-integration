@@ -1,7 +1,8 @@
 package com.refinedmods.refinedstorage.jei.common;
 
-import com.refinedmods.refinedstorage.api.grid.view.GridView;
 import com.refinedmods.refinedstorage.api.resource.ResourceAmount;
+import com.refinedmods.refinedstorage.api.resource.repository.ResourceRepository;
+import com.refinedmods.refinedstorage.common.api.grid.view.GridResource;
 import com.refinedmods.refinedstorage.common.autocrafting.patterngrid.PatternGridContainerMenu;
 
 import java.util.List;
@@ -17,19 +18,20 @@ abstract class AbstractPatternGridRecipeTransferHandler<R>
     implements IRecipeTransferHandler<PatternGridContainerMenu, R> {
 
     @Nullable
-    public static IRecipeTransferError autocraftableHint(final GridView view, final IRecipeSlotsView recipeSlots) {
+    public static IRecipeTransferError autocraftableHint(final ResourceRepository<GridResource> repository,
+                                                         final IRecipeSlotsView recipeSlots) {
         final List<IRecipeSlotView> inputs = recipeSlots.getSlotViews(RecipeIngredientRole.INPUT);
         final boolean allAreAutocraftable = inputs.stream()
             .filter(slotView -> !slotView.isEmpty())
             .allMatch(slotView -> SlotUtil.getResources(slotView)
                 .stream()
                 .map(ResourceAmount::resource)
-                .anyMatch(view::isAutocraftable));
+                .anyMatch(repository::isSticky));
         final List<IRecipeSlotView> autocraftableSlots = inputs.stream()
             .filter(slotView -> SlotUtil.getResources(slotView)
                 .stream()
                 .map(ResourceAmount::resource)
-                .anyMatch(view::isAutocraftable))
+                .anyMatch(repository::isSticky))
             .toList();
         return autocraftableSlots.isEmpty()
             ? null

@@ -1,7 +1,7 @@
 package com.refinedmods.refinedstorage.jei.common;
 
 import com.refinedmods.refinedstorage.common.api.RefinedStorageApi;
-import com.refinedmods.refinedstorage.common.api.grid.view.PlatformGridResource;
+import com.refinedmods.refinedstorage.common.api.grid.view.GridResource;
 import com.refinedmods.refinedstorage.common.api.support.resource.PlatformResourceKey;
 import com.refinedmods.refinedstorage.common.grid.screen.AbstractGridScreen;
 
@@ -26,7 +26,7 @@ class GridGuiContainerHandler implements IGuiContainerHandler<AbstractGridScreen
         final double mouseX,
         final double mouseY
     ) {
-        final PlatformGridResource resource = screen.getCurrentGridResource();
+        final GridResource resource = screen.getCurrentGridResource();
         if (resource == null) {
             return Optional.empty();
         }

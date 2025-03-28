@@ -55,6 +55,6 @@ class PatternGridStonecutterRecipeTransferHandler
                 outputStacks.getFirst().getFirst()
             );
         }
-        return autocraftableHint(containerMenu.getView(), recipeSlots);
+        return autocraftableHint(containerMenu.getRepository(), recipeSlots);
     }
 }

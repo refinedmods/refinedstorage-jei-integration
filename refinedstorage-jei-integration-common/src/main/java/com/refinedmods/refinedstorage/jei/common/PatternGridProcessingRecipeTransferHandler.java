@@ -41,6 +41,6 @@ class PatternGridProcessingRecipeTransferHandler implements IUniversalRecipeTran
             final List<List<ResourceAmount>> outputs = SlotUtil.getResources(recipeSlots, RecipeIngredientRole.OUTPUT);
             container.transferProcessingRecipe(inputs, outputs);
         }
-        return AbstractPatternGridRecipeTransferHandler.autocraftableHint(container.getView(), recipeSlots);
+        return AbstractPatternGridRecipeTransferHandler.autocraftableHint(container.getRepository(), recipeSlots);
     }
 }
