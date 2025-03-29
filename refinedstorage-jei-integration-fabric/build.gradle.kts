@@ -30,7 +30,9 @@ refinedarchitect {
     publishing {
         maven = true
         curseForge = "1230497"
+        curseForgeRequiredDependencies = listOf("fabric-api", "refined-storage", "jei")
         modrinth = "VzR5wiLo"
+        modrinthRequiredDependencies = listOf("fabric-api", "refined-storage", "jei")
     }
 }
 
