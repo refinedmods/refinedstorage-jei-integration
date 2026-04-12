@@ -6,7 +6,6 @@ import com.refinedmods.refinedstorage.common.grid.screen.AbstractGridScreen;
 import com.refinedmods.refinedstorage.common.support.AbstractBaseScreen;
 
 import java.util.function.Supplier;
-import javax.annotation.Nullable;
 
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
@@ -16,19 +15,20 @@ import mezz.jei.api.registration.IGuiHandlerRegistration;
 import mezz.jei.api.registration.IIngredientAliasRegistration;
 import mezz.jei.api.registration.IRecipeTransferRegistration;
 import mezz.jei.api.runtime.IJeiRuntime;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
+import org.jspecify.annotations.Nullable;
 
 import static com.refinedmods.refinedstorage.jei.common.Common.MOD_ID;
 
 @JeiPlugin
 public class RefinedStorageModPlugin implements IModPlugin {
-    private static final ResourceLocation ID = ResourceLocation.fromNamespaceAndPath(MOD_ID, "plugin");
+    private static final Identifier ID = Identifier.fromNamespaceAndPath(MOD_ID, "plugin");
     @Nullable
     private static IJeiRuntime runtime;
 
     @Override
-    public ResourceLocation getPluginUid() {
+    public Identifier getPluginUid() {
         return ID;
     }
 

@@ -1,4 +1,4 @@
-package com.refinedmods.refinedstorage.jei.forge;
+package com.refinedmods.refinedstorage.jei.neoforge;
 
 import com.refinedmods.refinedstorage.common.api.RefinedStorageApi;
 import com.refinedmods.refinedstorage.jei.common.Common;
@@ -13,7 +13,7 @@ import static com.refinedmods.refinedstorage.jei.common.Common.init;
 @Mod(Common.MOD_ID)
 public class ModInitializer {
     public ModInitializer(final IEventBus eventBus) {
-        Common.setPlatform(new ForgePlatform());
+        Common.setPlatform(new NeoForgePlatform());
         eventBus.addListener(ModInitializer::onCommonSetup);
     }
 
