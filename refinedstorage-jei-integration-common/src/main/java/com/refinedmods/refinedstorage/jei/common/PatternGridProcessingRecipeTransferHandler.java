@@ -6,7 +6,6 @@ import com.refinedmods.refinedstorage.common.content.Menus;
 
 import java.util.List;
 import java.util.Optional;
-import javax.annotation.Nullable;
 
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.recipe.RecipeIngredientRole;
@@ -14,6 +13,7 @@ import mezz.jei.api.recipe.transfer.IRecipeTransferError;
 import mezz.jei.api.recipe.transfer.IUniversalRecipeTransferHandler;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.MenuType;
+import org.jspecify.annotations.Nullable;
 
 class PatternGridProcessingRecipeTransferHandler implements IUniversalRecipeTransferHandler<PatternGridContainerMenu> {
     @Override

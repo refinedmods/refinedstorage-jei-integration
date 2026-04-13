@@ -7,6 +7,7 @@ import com.refinedmods.refinedstorage.common.grid.screen.AbstractGridScreen;
 
 import java.util.Optional;
 
+import mezz.jei.api.gui.builder.IClickableIngredientFactory;
 import mezz.jei.api.gui.handlers.IGuiContainerHandler;
 import mezz.jei.api.ingredients.IIngredientHelper;
 import mezz.jei.api.ingredients.ITypedIngredient;
@@ -22,11 +23,12 @@ class GridGuiContainerHandler implements IGuiContainerHandler<AbstractGridScreen
 
     @Override
     public Optional<IClickableIngredient<?>> getClickableIngredientUnderMouse(
-        final AbstractGridScreen screen,
+        final IClickableIngredientFactory builder,
+        final AbstractGridScreen<?> containerScreen,
         final double mouseX,
         final double mouseY
     ) {
-        final GridResource resource = screen.getCurrentGridResource();
+        final GridResource resource = containerScreen.getCurrentGridResource();
         if (resource == null) {
             return Optional.empty();
         }
@@ -43,8 +45,11 @@ class GridGuiContainerHandler implements IGuiContainerHandler<AbstractGridScreen
                                                                            final double y,
                                                                            final Object ingredient) {
         final IIngredientHelper<Object> helper = ingredientManager.getIngredientHelper(ingredient);
-        final Optional<ITypedIngredient<Object>> maybeTypedIngredient =
-            ingredientManager.createTypedIngredient(helper.getIngredientType(), ingredient);
+        final Optional<ITypedIngredient<Object>> maybeTypedIngredient = ingredientManager.createTypedIngredient(
+            helper.getIngredientType(),
+            ingredient,
+            false
+        );
         return maybeTypedIngredient
             .map(typedIngredient -> new ClickableIngredient<>(typedIngredient, (int) x, (int) y));
     }

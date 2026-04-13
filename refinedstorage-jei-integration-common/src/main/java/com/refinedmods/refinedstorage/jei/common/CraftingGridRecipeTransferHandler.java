@@ -11,24 +11,28 @@ import com.refinedmods.refinedstorage.common.support.resource.ItemResource;
 
 import java.util.List;
 import java.util.Optional;
-import javax.annotation.Nullable;
 
+import com.mojang.blaze3d.platform.InputConstants;
+import com.mojang.blaze3d.platform.Window;
 import mezz.jei.api.constants.RecipeTypes;
 import mezz.jei.api.gui.ingredient.IRecipeSlotView;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.recipe.RecipeIngredientRole;
-import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.transfer.IRecipeTransferError;
 import mezz.jei.api.recipe.transfer.IRecipeTransferHandler;
+import mezz.jei.api.recipe.types.IRecipeType;
 import mezz.jei.api.runtime.IRecipesGui;
 import mezz.jei.common.transfer.RecipeTransferErrorInternal;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.util.Util;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.CraftingRecipe;
 import net.minecraft.world.item.crafting.RecipeHolder;
+import org.jspecify.annotations.Nullable;
+import org.lwjgl.glfw.GLFW;
 
 import static java.util.Comparator.comparingLong;
 
@@ -51,7 +55,7 @@ class CraftingGridRecipeTransferHandler<T extends AbstractCraftingGridContainerM
     }
 
     @Override
-    public RecipeType<RecipeHolder<CraftingRecipe>> getRecipeType() {
+    public IRecipeType<RecipeHolder<CraftingRecipe>> getRecipeType() {
         return RecipeTypes.CRAFTING;
     }
 
@@ -68,7 +72,12 @@ class CraftingGridRecipeTransferHandler<T extends AbstractCraftingGridContainerM
         final List<TransferInput> transferInputs = getTransferInputs(repository, recipeSlots, available);
         final TransferType type = getTransferType(transferInputs);
         if (doTransfer) {
-            if (type.canOpenAutocraftingPreview() && Screen.hasControlDown()) {
+            final Window window = Minecraft.getInstance().getWindow();
+            final boolean commandDown = Util.getPlatform() == Util.OS.OSX
+                && (InputConstants.isKeyDown(window, GLFW.GLFW_KEY_LEFT_SUPER)
+                || InputConstants.isKeyDown(window, GLFW.GLFW_KEY_RIGHT_SUPER));
+            final boolean controlDown = Minecraft.getInstance().hasControlDown();
+            if (type.canOpenAutocraftingPreview() && (controlDown || commandDown)) {
                 openAutocraftingPreview(transferInputs);
                 return RecipeTransferErrorInternal.INSTANCE;
             } else {
@@ -142,9 +151,9 @@ class CraftingGridRecipeTransferHandler<T extends AbstractCraftingGridContainerM
     private static List<ResourceAmount> createCraftingRequests(final List<TransferInput> transferInputs) {
         final MutableResourceList requests = MutableResourceListImpl.orderPreserving();
         for (final TransferInput transferInput : transferInputs) {
-            if (transferInput.type() == TransferInputType.AUTOCRAFTABLE
-                && transferInput.autocraftableResource() != null) {
-                requests.add(transferInput.autocraftableResource(), 1);
+            final ItemResource autocraftableResource = transferInput.autocraftableResource();
+            if (transferInput.type() == TransferInputType.AUTOCRAFTABLE && autocraftableResource != null) {
+                requests.add(autocraftableResource, 1);
             }
         }
         return requests.copyState().stream().toList();

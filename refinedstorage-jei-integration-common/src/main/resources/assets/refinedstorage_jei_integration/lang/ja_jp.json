@@ -1,12 +1,12 @@
 {
   "gui.refinedstorage_jei_integration.grid.synchronizer": "JEI",
-  "gui.refinedstorage_jei_integration.grid.synchronizer.help": "Sync the search box text to the JEI filter.",
-  "gui.refinedstorage_jei_integration.grid.synchronizer.two_way": "JEI two-way",
-  "gui.refinedstorage_jei_integration.grid.synchronizer.two_way.help": "Sync the search box text to the JEI filter, and the JEI filter to the search box text.",
-  "gui.refinedstorage_jei_integration.transfer.missing_but_all_autocraftable": "Missing items, all are autocraftable",
-  "gui.refinedstorage_jei_integration.transfer.missing_but_some_autocraftable": "Missing items, some are autocraftable",
-  "gui.refinedstorage_jei_integration.transfer.ctrl_click_to_autocraft": "CTRL + click to autocraft",
-  "gui.refinedstorage_jei_integration.transfer.all_autocraftable": "All are autocraftable",
-  "gui.refinedstorage_jei_integration.transfer.some_autocraftable": "Some are autocraftable",
-  "alias.refinedstorage_jei_integration.refinedstorage1_disk_manipulator": "Disk Manipulator"
+  "gui.refinedstorage_jei_integration.grid.synchronizer.help": "検索窓のテキストをJEIのフィルターと同期します",
+  "gui.refinedstorage_jei_integration.grid.synchronizer.two_way": "JEI（双方向）",
+  "gui.refinedstorage_jei_integration.grid.synchronizer.two_way.help": "検索窓のテキストをJEIのフィルターに、JEIのフィルターを検索窓のテキストに同期します",
+  "gui.refinedstorage_jei_integration.transfer.missing_but_all_autocraftable": "アイテムが不足していますが、すべてオートクラフト可能です",
+  "gui.refinedstorage_jei_integration.transfer.missing_but_some_autocraftable": "アイテムが不足していますが、いくつかはオートクラフト可能です",
+  "gui.refinedstorage_jei_integration.transfer.ctrl_click_to_autocraft": "Ctrl + クリックでオートクラフト",
+  "gui.refinedstorage_jei_integration.transfer.all_autocraftable": "すべてオートクラフト可能です",
+  "gui.refinedstorage_jei_integration.transfer.some_autocraftable": "いくつかはオートクラフト可能です",
+  "alias.refinedstorage_jei_integration.refinedstorage1_disk_manipulator": "ディスクマニピュレーター"
 }

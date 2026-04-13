@@ -33,11 +33,11 @@
     }
   },
   "depends": {
-    "fabricloader": ">=0.14.6",
+    "fabricloader": "*",
     "fabric-api": "*",
-    "minecraft": "~1.21",
-    "refinedstorage": ">=2.0.0-beta.1",
-    "jei": ">=19.20.0",
-    "java": ">=17"
+    "minecraft": "~26.1",
+    "refinedstorage": ">=3.0.0-beta.1",
+    "jei": ">=29.5.0.24",
+    "java": ">=25"
   }
 }

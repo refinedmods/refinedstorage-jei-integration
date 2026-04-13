@@ -4,17 +4,17 @@ import com.refinedmods.refinedstorage.common.autocrafting.patterngrid.PatternGri
 import com.refinedmods.refinedstorage.common.content.Menus;
 
 import java.util.Optional;
-import javax.annotation.Nullable;
 
 import mezz.jei.api.constants.RecipeTypes;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.recipe.RecipeIngredientRole;
-import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.transfer.IRecipeTransferError;
+import mezz.jei.api.recipe.types.IRecipeType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.StonecutterRecipe;
+import org.jspecify.annotations.Nullable;
 
 class PatternGridStonecutterRecipeTransferHandler
     extends AbstractPatternGridRecipeTransferHandler<RecipeHolder<StonecutterRecipe>> {
@@ -29,7 +29,7 @@ class PatternGridStonecutterRecipeTransferHandler
     }
 
     @Override
-    public RecipeType<RecipeHolder<StonecutterRecipe>> getRecipeType() {
+    public IRecipeType<RecipeHolder<StonecutterRecipe>> getRecipeType() {
         return RecipeTypes.STONECUTTING;
     }
 

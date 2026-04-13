@@ -1,14 +1,13 @@
 package com.refinedmods.refinedstorage.jei.common;
 
-import com.refinedmods.refinedstorage.common.Platform;
-
 import java.util.List;
 
-import com.mojang.blaze3d.vertex.PoseStack;
 import mezz.jei.api.gui.ingredient.IRecipeSlotView;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent;
+import net.minecraft.client.gui.screens.inventory.tooltip.DefaultTooltipPositioner;
 import net.minecraft.network.chat.Component;
 
 import static com.refinedmods.refinedstorage.jei.common.Common.MOD_ID;
@@ -43,22 +42,23 @@ class PatternGridRecipeTransferError extends AbstractRecipeTransferError {
     }
 
     @Override
-    public void showError(final GuiGraphics graphics,
+    public void showError(final GuiGraphicsExtractor graphics,
                           final int mouseX,
                           final int mouseY,
                           final IRecipeSlotsView recipeSlotsView,
                           final int recipeX,
                           final int recipeY) {
-        final PoseStack poseStack = graphics.pose();
-        poseStack.pushPose();
-        poseStack.translate(recipeX, recipeY, 0);
+        graphics.pose().pushMatrix();
+        graphics.pose().translate(recipeX, recipeY);
         autocraftableSlots.forEach(input -> input.drawHighlight(graphics, AUTOCRAFTABLE_COLOR));
-        poseStack.popPose();
-        Platform.INSTANCE.renderTooltip(
-            graphics,
+        graphics.pose().popMatrix();
+        graphics.tooltip(
+            Minecraft.getInstance().font,
             allAreAutocraftable ? ALL_AUTOCRAFTABLE_TOOLTIP : SOME_AUTOCRAFTABLE_TOOLTIP,
             mouseX,
-            mouseY
+            mouseY,
+            DefaultTooltipPositioner.INSTANCE,
+            null
         );
     }
 }

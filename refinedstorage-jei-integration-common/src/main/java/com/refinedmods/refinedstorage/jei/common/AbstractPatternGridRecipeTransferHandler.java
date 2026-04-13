@@ -6,13 +6,13 @@ import com.refinedmods.refinedstorage.common.api.grid.view.GridResource;
 import com.refinedmods.refinedstorage.common.autocrafting.patterngrid.PatternGridContainerMenu;
 
 import java.util.List;
-import javax.annotation.Nullable;
 
 import mezz.jei.api.gui.ingredient.IRecipeSlotView;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.transfer.IRecipeTransferError;
 import mezz.jei.api.recipe.transfer.IRecipeTransferHandler;
+import org.jspecify.annotations.Nullable;
 
 abstract class AbstractPatternGridRecipeTransferHandler<R>
     implements IRecipeTransferHandler<PatternGridContainerMenu, R> {

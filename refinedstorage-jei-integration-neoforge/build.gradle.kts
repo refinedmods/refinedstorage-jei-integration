@@ -1,13 +1,13 @@
 plugins {
-    id("refinedarchitect.neoforge")
+    id("com.refinedmods.refinedarchitect.neoforge")
 }
 
 repositories {
     maven {
-        url = uri("https://maven.pkg.github.com/refinedmods/refinedstorage2")
-        credentials {
-            username = "anything"
-            password = "\u0067hp_oGjcDFCn8jeTzIj4Ke9pLoEVtpnZMP4VQgaX"
+        name = "Refined Storage"
+        url = uri("https://maven.creeperhost.net")
+        content {
+            includeGroup("com.refinedmods.refinedstorage")
         }
     }
     maven {
@@ -22,7 +22,9 @@ refinedarchitect {
     publishing {
         maven = true
         curseForge = "1230497"
+        curseForgeRequiredDependencies = listOf("refined-storage", "jei")
         modrinth = "VzR5wiLo"
+        modrinthRequiredDependencies = listOf("refined-storage", "jei")
     }
 }
 
@@ -48,5 +50,5 @@ dependencies {
     testCompileOnly("mezz.jei:jei-${minecraftVersion}-common:${jeiVersion}")
     compileOnlyApi("mezz.jei:jei-${minecraftVersion}-neoforge-api:${jeiVersion}")
     compileOnlyApi("com.refinedmods.refinedstorage:refinedstorage-quartz-arsenal-neoforge:${refinedstorageQuartzArsenalVersion}")
-    // runtimeOnly("com.refinedmods.refinedstorage:refinedstorage-quartz-arsenal-neoforge:${refinedstorageQuartzArsenalVersion}")
+    runtimeOnly("com.refinedmods.refinedstorage:refinedstorage-quartz-arsenal-neoforge:${refinedstorageQuartzArsenalVersion}")
 }
