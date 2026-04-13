@@ -6,6 +6,7 @@
   "gui.refinedstorage_jei_integration.transfer.missing_but_all_autocraftable": "Отсутствуют элементы, все они могут быть автоматически скрафчены",
   "gui.refinedstorage_jei_integration.transfer.missing_but_some_autocraftable": "Отсутствуют элементы, некоторые из них могут быть автоматически скрафчены",
   "gui.refinedstorage_jei_integration.transfer.ctrl_click_to_autocraft": "CTRL + клик для автокрафта",
+  "gui.refinedstorage_jei_integration.transfer.cmd_click_to_autocraft": "CMD + click to autocraft",
   "gui.refinedstorage_jei_integration.transfer.all_autocraftable": "Всё можно скрафтить автоматически",
   "gui.refinedstorage_jei_integration.transfer.some_autocraftable": "Некоторые из них доступны для автокрафта",
   "alias.refinedstorage_jei_integration.refinedstorage1_disk_manipulator": "Дисковый манипулятор"
