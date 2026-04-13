@@ -1,6 +1,7 @@
 package com.refinedmods.refinedstorage.jei.common;
 
 import com.refinedmods.refinedstorage.common.support.tooltip.HelpClientTooltipComponent;
+import com.refinedmods.refinedstorage.common.util.ClientPlatformUtil;
 
 import java.awt.Color;
 import java.util.Collections;
@@ -13,7 +14,6 @@ import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent;
 import net.minecraft.client.gui.screens.inventory.tooltip.DefaultTooltipPositioner;
 import net.minecraft.network.chat.Component;
-import net.minecraft.util.Util;
 
 import static com.refinedmods.refinedstorage.jei.common.Common.MOD_ID;
 
@@ -69,7 +69,7 @@ class CraftingGridRecipeTransferError extends AbstractRecipeTransferError {
     }
 
     private List<ClientTooltipComponent> calculateTooltip() {
-        final Component toAutocraftHint = Util.getPlatform() == Util.OS.OSX
+        final Component toAutocraftHint = ClientPlatformUtil.isCommand()
             ? CMD_CLICK_TO_AUTOCRAFT
             : CTRL_CLICK_TO_AUTOCRAFT;
         return switch (type) {

@@ -8,12 +8,11 @@ import com.refinedmods.refinedstorage.common.api.RefinedStorageClientApi;
 import com.refinedmods.refinedstorage.common.api.grid.view.GridResource;
 import com.refinedmods.refinedstorage.common.grid.AbstractCraftingGridContainerMenu;
 import com.refinedmods.refinedstorage.common.support.resource.ItemResource;
+import com.refinedmods.refinedstorage.common.util.ClientPlatformUtil;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.mojang.blaze3d.platform.InputConstants;
-import com.mojang.blaze3d.platform.Window;
 import mezz.jei.api.constants.RecipeTypes;
 import mezz.jei.api.gui.ingredient.IRecipeSlotView;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
@@ -25,14 +24,12 @@ import mezz.jei.api.runtime.IRecipesGui;
 import mezz.jei.common.transfer.RecipeTransferErrorInternal;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.util.Util;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.CraftingRecipe;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import org.jspecify.annotations.Nullable;
-import org.lwjgl.glfw.GLFW;
 
 import static java.util.Comparator.comparingLong;
 
@@ -72,12 +69,7 @@ class CraftingGridRecipeTransferHandler<T extends AbstractCraftingGridContainerM
         final List<TransferInput> transferInputs = getTransferInputs(repository, recipeSlots, available);
         final TransferType type = getTransferType(transferInputs);
         if (doTransfer) {
-            final Window window = Minecraft.getInstance().getWindow();
-            final boolean commandDown = Util.getPlatform() == Util.OS.OSX
-                && (InputConstants.isKeyDown(window, GLFW.GLFW_KEY_LEFT_SUPER)
-                || InputConstants.isKeyDown(window, GLFW.GLFW_KEY_RIGHT_SUPER));
-            final boolean controlDown = Minecraft.getInstance().hasControlDown();
-            if (type.canOpenAutocraftingPreview() && (controlDown || commandDown)) {
+            if (type.canOpenAutocraftingPreview() && ClientPlatformUtil.isCommandOrControlDown()) {
                 openAutocraftingPreview(transferInputs);
                 return RecipeTransferErrorInternal.INSTANCE;
             } else {
