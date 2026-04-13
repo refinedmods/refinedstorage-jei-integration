@@ -1,4 +1,4 @@
-package com.refinedmods.refinedstorage.jei.forge;
+package com.refinedmods.refinedstorage.jei.neoforge;
 
 import com.refinedmods.refinedstorage.api.resource.ResourceAmount;
 import com.refinedmods.refinedstorage.common.support.resource.FluidResource;
@@ -8,9 +8,7 @@ import java.util.Optional;
 
 import net.neoforged.neoforge.fluids.FluidStack;
 
-import static com.refinedmods.refinedstorage.neoforge.support.resource.VariantUtil.ofFluidStack;
-
-public class ForgePlatform implements Platform {
+public class NeoForgePlatform implements Platform {
     @Override
     public Optional<FluidResource> convertJeiIngredientToFluid(final Object ingredient) {
         if (ingredient instanceof FluidStack fluidStack) {
@@ -25,5 +23,9 @@ public class ForgePlatform implements Platform {
             return Optional.of(new ResourceAmount(ofFluidStack(fluidStack), fluidStack.getAmount()));
         }
         return Optional.empty();
+    }
+
+    private static FluidResource ofFluidStack(final FluidStack fluidStack) {
+        return new FluidResource(fluidStack.getFluid(), fluidStack.getComponentsPatch());
     }
 }

@@ -3,11 +3,10 @@ package com.refinedmods.refinedstorage.jei.common;
 import com.refinedmods.refinedstorage.common.api.grid.GridSynchronizer;
 import com.refinedmods.refinedstorage.common.grid.NoopGridSynchronizer;
 
-import javax.annotation.Nullable;
-
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
+import org.jspecify.annotations.Nullable;
 
 import static com.refinedmods.refinedstorage.jei.common.Common.MOD_ID;
 
@@ -49,7 +48,7 @@ class JeiGridSynchronizer implements GridSynchronizer {
     }
 
     @Override
-    public ResourceLocation getSprite() {
+    public Identifier getSprite() {
         return twoWay ? NoopGridSynchronizer.ON_TWO_WAY : NoopGridSynchronizer.ON;
     }
 }

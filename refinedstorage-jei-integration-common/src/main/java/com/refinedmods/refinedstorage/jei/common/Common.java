@@ -2,7 +2,7 @@ package com.refinedmods.refinedstorage.jei.common;
 
 import com.refinedmods.refinedstorage.common.api.RefinedStorageApi;
 
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 import static java.util.Objects.requireNonNull;
 
@@ -25,11 +25,11 @@ public final class Common {
     public static void init(final RefinedStorageApi api) {
         api.addIngredientConverter(new JeiRecipeModIngredientConverter());
         api.getGridSynchronizerRegistry().register(
-            ResourceLocation.fromNamespaceAndPath(Common.MOD_ID, "jei"),
+            Identifier.fromNamespaceAndPath(Common.MOD_ID, "jei"),
             new JeiGridSynchronizer(false)
         );
         api.getGridSynchronizerRegistry().register(
-            ResourceLocation.fromNamespaceAndPath(Common.MOD_ID, "jei_two_way"),
+            Identifier.fromNamespaceAndPath(Common.MOD_ID, "jei_two_way"),
             new JeiGridSynchronizer(true)
         );
     }

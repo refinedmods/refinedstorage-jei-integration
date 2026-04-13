@@ -1,7 +1,4 @@
 @NullMarked
-
-package com.refinedmods.refinedstorage.jei.fabric;
-
-
+package com.refinedmods.refinedstorage.jei.neoforge;
 
 import org.jspecify.annotations.NullMarked;

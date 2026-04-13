@@ -6,17 +6,17 @@ import com.refinedmods.refinedstorage.common.support.resource.ItemResource;
 
 import java.util.List;
 import java.util.Optional;
-import javax.annotation.Nullable;
 
 import mezz.jei.api.constants.RecipeTypes;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.recipe.RecipeIngredientRole;
-import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.transfer.IRecipeTransferError;
+import mezz.jei.api.recipe.types.IRecipeType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.SmithingRecipe;
+import org.jspecify.annotations.Nullable;
 
 class PatternGridSmithingTableRecipeTransferHandler
     extends AbstractPatternGridRecipeTransferHandler<RecipeHolder<SmithingRecipe>> {
@@ -31,7 +31,7 @@ class PatternGridSmithingTableRecipeTransferHandler
     }
 
     @Override
-    public RecipeType<RecipeHolder<SmithingRecipe>> getRecipeType() {
+    public IRecipeType<RecipeHolder<SmithingRecipe>> getRecipeType() {
         return RecipeTypes.SMITHING;
     }
 
