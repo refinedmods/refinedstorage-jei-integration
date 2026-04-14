@@ -6,6 +6,7 @@
   "gui.refinedstorage_jei_integration.transfer.missing_but_all_autocraftable": "缺少物品，但均可自动合成",
   "gui.refinedstorage_jei_integration.transfer.missing_but_some_autocraftable": "缺少物品，部分可自动合成",
   "gui.refinedstorage_jei_integration.transfer.ctrl_click_to_autocraft": "CTRL + 单击以自动合成",
+  "gui.refinedstorage_jei_integration.transfer.cmd_click_to_autocraft": "CMD + click to autocraft",
   "gui.refinedstorage_jei_integration.transfer.all_autocraftable": "均可自动合成",
   "gui.refinedstorage_jei_integration.transfer.some_autocraftable": "部分可自动合成",
   "alias.refinedstorage_jei_integration.refinedstorage1_disk_manipulator": "磁盘控制器"
