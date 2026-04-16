@@ -6,7 +6,7 @@
   "gui.refinedstorage_jei_integration.transfer.missing_but_all_autocraftable": "Itens faltantes, todos são auto-fabricáveis",
   "gui.refinedstorage_jei_integration.transfer.missing_but_some_autocraftable": "Itens faltantes, alguns são auto-fabricíveis",
   "gui.refinedstorage_jei_integration.transfer.ctrl_click_to_autocraft": "CTRL + clique para auto-fabricar",
-  "gui.refinedstorage_jei_integration.transfer.cmd_click_to_autocraft": "CMD + click to autocraft",
+  "gui.refinedstorage_jei_integration.transfer.cmd_click_to_autocraft": "CMD + clique para criar automaticamente",
   "gui.refinedstorage_jei_integration.transfer.all_autocraftable": "Todos são auto-fabricáveis",
   "gui.refinedstorage_jei_integration.transfer.some_autocraftable": "Alguns são auto-fabricáveis",
   "alias.refinedstorage_jei_integration.refinedstorage1_disk_manipulator": "Manipulador de Disco"
