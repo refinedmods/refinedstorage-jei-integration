@@ -6,6 +6,7 @@
   "gui.refinedstorage_jei_integration.transfer.missing_but_all_autocraftable": "アイテムが不足していますが、すべてオートクラフト可能です",
   "gui.refinedstorage_jei_integration.transfer.missing_but_some_autocraftable": "アイテムが不足していますが、いくつかはオートクラフト可能です",
   "gui.refinedstorage_jei_integration.transfer.ctrl_click_to_autocraft": "Ctrl + クリックでオートクラフト",
+  "gui.refinedstorage_jei_integration.transfer.cmd_click_to_autocraft": "CMD + click to autocraft",
   "gui.refinedstorage_jei_integration.transfer.all_autocraftable": "すべてオートクラフト可能です",
   "gui.refinedstorage_jei_integration.transfer.some_autocraftable": "いくつかはオートクラフト可能です",
   "alias.refinedstorage_jei_integration.refinedstorage1_disk_manipulator": "ディスクマニピュレーター"

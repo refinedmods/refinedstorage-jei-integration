@@ -6,6 +6,7 @@
   "gui.refinedstorage_jei_integration.transfer.missing_but_all_autocraftable": "Objets manquants, tous peuvent être produits automatiquement",
   "gui.refinedstorage_jei_integration.transfer.missing_but_some_autocraftable": "Objets manquants, certains peuvent être produits automatiquement",
   "gui.refinedstorage_jei_integration.transfer.ctrl_click_to_autocraft": "Ctrl + clic pour produire automatiquement",
+  "gui.refinedstorage_jei_integration.transfer.cmd_click_to_autocraft": "CMD + click to autocraft",
   "gui.refinedstorage_jei_integration.transfer.all_autocraftable": "Tous peuvent être produits automatiquement",
   "gui.refinedstorage_jei_integration.transfer.some_autocraftable": "Certains peuvent être produits automatiquement",
   "alias.refinedstorage_jei_integration.refinedstorage1_disk_manipulator": "Manipulateur de Disques"
