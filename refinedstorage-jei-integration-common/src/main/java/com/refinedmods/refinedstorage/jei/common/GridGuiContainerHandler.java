@@ -32,7 +32,7 @@ class GridGuiContainerHandler implements IGuiContainerHandler<AbstractGridScreen
         if (resource == null) {
             return Optional.empty();
         }
-        final PlatformResourceKey underlyingResource = resource.getResourceForRecipeMods();
+        final PlatformResourceKey underlyingResource = resource.getAutocraftingResource();
         if (underlyingResource == null) {
             return Optional.empty();
         }
