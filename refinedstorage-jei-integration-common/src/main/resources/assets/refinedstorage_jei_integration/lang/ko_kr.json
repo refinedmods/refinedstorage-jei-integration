@@ -1,13 +1,13 @@
 {
   "gui.refinedstorage_jei_integration.grid.synchronizer": "JEI",
-  "gui.refinedstorage_jei_integration.grid.synchronizer.help": "Sync the search box text to the JEI filter.",
-  "gui.refinedstorage_jei_integration.grid.synchronizer.two_way": "JEI two-way",
-  "gui.refinedstorage_jei_integration.grid.synchronizer.two_way.help": "Sync the search box text to the JEI filter, and the JEI filter to the search box text.",
-  "gui.refinedstorage_jei_integration.transfer.missing_but_all_autocraftable": "Missing items, all are autocraftable",
-  "gui.refinedstorage_jei_integration.transfer.missing_but_some_autocraftable": "Missing items, some are autocraftable",
-  "gui.refinedstorage_jei_integration.transfer.ctrl_click_to_autocraft": "CTRL + click to autocraft",
-  "gui.refinedstorage_jei_integration.transfer.cmd_click_to_autocraft": "CMD + click to autocraft",
-  "gui.refinedstorage_jei_integration.transfer.all_autocraftable": "All are autocraftable",
-  "gui.refinedstorage_jei_integration.transfer.some_autocraftable": "Some are autocraftable",
-  "alias.refinedstorage_jei_integration.refinedstorage1_disk_manipulator": "Disk Manipulator"
+  "gui.refinedstorage_jei_integration.grid.synchronizer.help": "검색창 텍스트를 JEI 필터와 동기화 합니다.",
+  "gui.refinedstorage_jei_integration.grid.synchronizer.two_way": "JEI 양방향 동기화",
+  "gui.refinedstorage_jei_integration.grid.synchronizer.two_way.help": "검색창 텍스트를 JEI 필터와 동기화하고, JEI 필터를 검색창 텍스트와 동기화 합니다.",
+  "gui.refinedstorage_jei_integration.transfer.missing_but_all_autocraftable": "부족한 항목이 있지만 모두 자동 제작 가능합니다",
+  "gui.refinedstorage_jei_integration.transfer.missing_but_some_autocraftable": "부족한 항목 중 일부만 자동 제작 가능합니다",
+  "gui.refinedstorage_jei_integration.transfer.ctrl_click_to_autocraft": "CTRL + 클릭으로 자동 제작",
+  "gui.refinedstorage_jei_integration.transfer.cmd_click_to_autocraft": "CMD + 클릭으로 자동 제작",
+  "gui.refinedstorage_jei_integration.transfer.all_autocraftable": "모두 자동 제작 가능합니다",
+  "gui.refinedstorage_jei_integration.transfer.some_autocraftable": "일부 자동 제작 가능합니다",
+  "alias.refinedstorage_jei_integration.refinedstorage1_disk_manipulator": "디스크 조작기"
 }
